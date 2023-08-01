@@ -19,7 +19,7 @@
         </div>
     </div>
 
-{{--    @include('admin.message')--}}
+   @include('admin.message')
 
     <!-- main body -->
     <div class="row">

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->char('title', 100);
-            $table->char('sub_title', 150);
-            $table->string('desc');
+            $table->char('sub_title', 150)->nullable();
+            $table->string('desc')->nullable();
             $table->char('slider_type', 100);
             $table->enum('is_publish', ['active', 'in-active'])->default('active');
             $table->timestamps();

@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
             <div class="page-title">
                 <div class="row">
                     <div class="col-sm-6">
@@ -1174,7 +1172,5 @@
                     </div>
                 </div>
             </div>
-
-
 
 @endsection

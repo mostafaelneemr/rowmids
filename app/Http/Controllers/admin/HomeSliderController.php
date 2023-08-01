@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +16,7 @@ class HomeSliderController extends Controller
     public function index()
     {
         $sliders = Slider::where('slider_type', self::SLIDER_TYPE)->get();
-        return view('admin.home.slider.index', compact('sliders'));
+        return $this->view('home.slider.index', compact('sliders'));
     }
 
     public function create()
@@ -23,12 +24,12 @@ class HomeSliderController extends Controller
         if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 3){
             return back();
         }
-        return view('admin.home.slider.create');
+        return $this->view('home.slider.create');
     }
 
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-//        try{
+       try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1920, 1000)->save('upload/home/' . $name_gen);
@@ -47,9 +48,9 @@ class HomeSliderController extends Controller
                 'alert-type' => 'success',
             );
             return redirect::route('home-slider.index')->with($notification);
-//        }catch (\Exception $e) {
-//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-//        }
+       }catch (\Exception $e) {
+           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+       }
     }
 
     public function show($id)
@@ -60,7 +61,7 @@ class HomeSliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return view('admin.home.slider.edit', compact('sliders'));
+        return $this->view('home.slider.edit', compact('sliders'));
     }
 
     public function update(Request $request, $id)
@@ -107,8 +108,8 @@ class HomeSliderController extends Controller
     {
         Slider::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
-            'message' => 'Product Inactive',
-            'alert-type' => 'success',
+            'message' => 'Slider is Inactive',
+            'alert-type' => 'info',
         );
 
         return redirect()->back()->with($notification);
@@ -118,7 +119,7 @@ class HomeSliderController extends Controller
     {
         Slider::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(
-            'message' => 'Product Active',
+            'message' => 'Slider is Active',
             'alert-type' => 'success',
         );
 

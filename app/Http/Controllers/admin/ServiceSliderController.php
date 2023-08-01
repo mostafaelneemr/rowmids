@@ -15,7 +15,7 @@ class ServiceSliderController extends Controller
     public function index()
     {
         $sliders = Slider::where('slider_type', self::SLIDER_TYPE)->get();
-        return view('admin.service.slider.index', compact('sliders'));
+        return $this->view('service.slider.index', compact('sliders'));
     }
 
 
@@ -24,7 +24,7 @@ class ServiceSliderController extends Controller
         if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
             return back();
         }
-        return view('admin.service.slider.create');
+        return $this->view('service.slider.create');
     }
 
 
@@ -64,7 +64,7 @@ class ServiceSliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return view('admin.service.slider.edit', compact('sliders'));
+        return $this->view('service.slider.edit', compact('sliders'));
     }
 
 

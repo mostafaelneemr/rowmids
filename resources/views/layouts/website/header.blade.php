@@ -8,7 +8,11 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{route('home')}}">
-                                <img src="{{asset('website/img/logo/brook-white.png')}}" alt="Brook Images">
+                                @if(!empty($site_logo = \App\Models\admin\Setting::where('name','site_logo')->value('value')))
+				<img alt="Logo" src="{{ $site_logo}}" style="width: 100%;" />
+			@else
+				<img alt="Logo" src="{{ url('public/Logo-PNG_3.png')}}" style="width: 100%;" />
+			@endif
                             </a>
                         </div>
                     </div>

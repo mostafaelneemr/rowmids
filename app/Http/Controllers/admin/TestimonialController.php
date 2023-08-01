@@ -3,83 +3,121 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Intervention\Image\Facades\Image;
 
 class TestimonialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $testimonails = Testimonial::all();
+        return $this->view('about.testimonial.index', compact('testimonails'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return $this->view('about.testimonial.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+//        try{
+        $image = $request->file('image');
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(60, 60)->save('upload/about/' . $name_gen);
+        $save_url = 'upload/about/' . $name_gen;
+
+        Testimonial::create([
+            'name' => $request->name,
+            'title' => $request->title,
+            'desc' => $request->title,
+            'image' => $save_url,
+        ]);
+
+        $notification = array(
+            'message' => 'Testimonial Inserted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect::route('testimonials.index')->with($notification);
+//        }catch (\Exception $e) {
+//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+//        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $testimonails = Testimonial::findOrFail($id);
+        return $this->view('about.testimonial.edit', compact('testimonails'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $id = $request->id;
+            $old_image = $request->old_image;
+
+            if($request->file('image')){
+                @unlink($old_image);
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(60,60)->save('upload/about/'.$name_gen);
+                $save_url = 'upload/about/'.$name_gen;
+                Testimonial::findOrFail($id)->update(['image' => $save_url]);
+            }
+
+            Testimonial::findOrFail($id)->update([
+                'name' => $request->name,
+                'title' => $request->title,
+                'desc' => $request->title,
+
+            ]);
+
+            $notification = array(
+                'message' => 'Testimonial updated Successfully',
+                'alert-type' => 'info',
+            );
+            return redirect::route('testimonials.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //
+    }
+
+    public function InactiveSlider($id)
+    {
+        Testimonial::findOrFail($id)->update(['is_publish' => 'in-active']);
+        $notification = array(
+            'message' => 'Testimonial is Inactive',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ActiveSlider($id)
+    {
+        Testimonial::findOrFail($id)->update(['is_publish' => 'active']);
+        $notification = array(
+            'message' => 'Testimonial is Active',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

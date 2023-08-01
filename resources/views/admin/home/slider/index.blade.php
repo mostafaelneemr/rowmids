@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    slider section
+    Slider section
 @endsection
 
 @section('content')
@@ -9,11 +9,11 @@
     <div class="row">
         <div class="col-md-12 ">
 
-{{--            @include('admin.message')--}}
+            @include('admin.message')
 
             <div class="card">
                 <div class="card-header">
-                    <h3> Slider List
+                    <h3> Sliders
                         @if (\App\Models\admin\Slider::where('slider_type' , 'home')->count() < 3)
                             <a href="{{route('home-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
                         @endif
@@ -21,7 +21,8 @@
                 </div>
 
                 <div class="card-body ">
-                    <table class="table table-bordered table-striped" id="table_id">
+                    <div class="table-responsive">
+                        <table id="datatable" class="table table-striped table-bordered p-0 text-center table-hover">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -55,6 +56,7 @@
                         </tbody>
 
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,9 +67,9 @@
 @endsection
 
 @push('script')
+
     <script type="text/javascript">
         function deleteSlider($routeName,$reload){
-
             if(!confirm("Do you want to delete this Slider?")){ return false; }
 
             if($reload == undefined){ $reload = 3000; }

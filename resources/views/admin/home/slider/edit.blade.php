@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">create slider</h4>
+                <h4 class="mb-0">Edit slider {{ $slider->title }}</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    {{--    @include('admin.message')--}}
+       @include('admin.message')
 
     <!-- main body -->
     <div class="row">

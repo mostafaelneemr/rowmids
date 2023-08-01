@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->char('name', 100);
+            $table->char('title', 150);
+            $table->text('desc');
+            $table->enum('is_publish', ['active', 'in-active'])->default('active');
             $table->timestamps();
         });
     }

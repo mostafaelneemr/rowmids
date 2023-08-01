@@ -40,6 +40,6 @@
     @include('layouts.admin.script')
 
     @stack('script')
-
+</div>
 </body>
 </html>

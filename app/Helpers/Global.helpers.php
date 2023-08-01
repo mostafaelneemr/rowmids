@@ -2,14 +2,8 @@
 
 use App\Models\admin\Setting;
 
-function img($path)
-{
-    if ($path) {
-    return asset( 'storage/app/public/' . $path );
-    } else {
-        return asset( 'default.jpg' );
-    }
-}
+
+
 /**
  *
  * @return global function image
@@ -20,6 +14,15 @@ function uploadImage($folder , $image)
     $filename = $image->hashName();
     $path = 'image/' . $folder . '/' . $filename;
     return $path;
+}
+
+function img($path)
+{
+    if ($path) {
+    return asset( 'storage/app/' . $path );
+    } else {
+        return asset( 'default.jpg' );
+    }
 }
 
 function setting($name, $returnAll = false)

@@ -11,6 +11,20 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function __construct(){
+        //parent::__construct();
+        $this->viewData['breadcrumb'] = [
+            [
+                'text'=> __('Home'),
+                'url'=> route('dashboard'),
+            ]
+        ];
+    }
+    
+    protected $viewData = [
+        'breadcrumb' => []
+    ];
+    
     protected function view($file, array $data = [])
     {
         return view('admin.' . $file, $data);

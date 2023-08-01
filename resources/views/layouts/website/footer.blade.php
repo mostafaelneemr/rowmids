@@ -8,7 +8,17 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="footer-widget text-var--2">
                         <div class="logo">
-                            <a href="#"> <img src="{{asset('website/img/logo/brook-white2.png')}}" alt="brook white"> </a>
+                            <a href="#"> 
+
+                                {{-- <img src="{{ img(setting('site_logo')) }}" alt=""> --}}
+                                @if(!empty($site_logo = \App\Models\admin\Setting::where('name','site_logo')->value('value')))
+				<img alt="Logo" src="{{ $site_logo}}" style="width: 100%;" />
+			@else
+				<img alt="Logo" src="{{ url('public/Logo-PNG_3.png')}}" style="width: 100%;" />
+			@endif
+
+                            </a>
+                            
                         </div>
                         <div class="footer-inner">
                             <p>Brook is a multi-purpose WordPress theme for big and small-sized businesses. Enjoy the theme's original design, functional features & responsive layouts.</p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +16,7 @@ class AboutSliderController extends Controller
     public function index()
     {
         $sliders = Slider::where('slider_type', self::SLIDER_TYPE)->get();
-        return view('admin.about.slider.index', compact('sliders'));
+        return $this->view('about.slider.index', compact('sliders'));
     }
 
     public function create()
@@ -23,12 +24,12 @@ class AboutSliderController extends Controller
         if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
             return back();
         }
-        return view('admin.about.slider.create');
+        return $this->view('about.slider.create');
     }
 
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-//        try{
+       try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1920, 1000)->save('upload/about/' . $name_gen);
@@ -37,7 +38,6 @@ class AboutSliderController extends Controller
             Slider::create([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
-                'desc' => $request->desc,
                 'slider_type' => static::SLIDER_TYPE,
                 'image' => $save_url,
             ]);
@@ -47,9 +47,9 @@ class AboutSliderController extends Controller
                 'alert-type' => 'success',
             );
             return redirect::route('about-slider.index')->with($notification);
-//        }catch (\Exception $e) {
-//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-//        }
+       }catch (\Exception $e) {
+           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+       }
     }
 
 
@@ -62,10 +62,10 @@ class AboutSliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return view('admin.about.slider.edit', compact('sliders'));
+        return $this->view('about.slider.edit', compact('sliders'));
     }
 
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, $id)
     {
         try {
             $id = $request->id;
@@ -83,7 +83,6 @@ class AboutSliderController extends Controller
             Slider::findOrFail($id)->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
-                'desc' => $request->desc,
             ]);
 
             $notification = array(

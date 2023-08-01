@@ -4,7 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Setting;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class SettingController extends Controller
 {
@@ -12,15 +15,17 @@ class SettingController extends Controller
         $this->viewData['breadcrumb'] = [
             [
                 'text'=> __('Home'),
-                'url'=> url('system'),
+                'url'=> route('dashboard'),
             ]
         ];
     }
 
     public function index(){
         // dd('ok');
-        // $this->viewData['pageTitle'] = __('Setting');
-
+        $this->viewData['pageTitle'] = __('Settings');
+        $this->viewData['breadcrumb'][] = [
+            'text'=> __('setting')
+        ];
         $settingGroups = Setting::select('group_name')
             ->orderBy('sort','ASC')
             ->groupBy('group_name')
@@ -54,10 +59,24 @@ class SettingController extends Controller
                         $value->name => 'nullable|image',
                     ]);
                     if (!$validator->fails() && $request->file($value->name)) {
-                        $path = $request->file($value->name)->store(setting('system_path').'/setting/'.date('Y/m/d'),'first_public');
-                        if($path){
-                            Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$path]);
+                        // $path = $request->file('site_logo')->store(setting('system_path').'/logo/'.md5(time()).'/'.date('Y/m/d'));
+                      
+                        if($request->file('site_logo')){
+
+                            $path = $request->file('site_logo');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }elseif($request->file('picture_service')){
+                            $path = $request->file('picture_service');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->save('upload/service/' . $name_gen);
+                            $save_url = 'upload/service/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }
+
+
                     }
                     break;
 

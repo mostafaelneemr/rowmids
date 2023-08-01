@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -15,7 +16,7 @@ class ContactSliderController extends Controller
     public function index()
     {
         $sliders = Slider::where('slider_type', self::SLIDER_TYPE)->get();
-        return view('admin.contact.slider.index', compact('sliders'));
+        return $this->view('contact.slider.index', compact('sliders'));
     }
 
 
@@ -24,13 +25,13 @@ class ContactSliderController extends Controller
         if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
             return back();
         }
-        return view('admin.contact.slider.create');
+        return $this->view('contact.slider.create', $this->viewData);
     }
 
 
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-//        try{
+       try{
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(1920, 1000)->save('upload/contact/' . $name_gen);
@@ -39,7 +40,6 @@ class ContactSliderController extends Controller
         Slider::create([
             'title' => $request->title,
             'sub_title' => $request->sub_title,
-            'desc' => $request->desc,
             'slider_type' => static::SLIDER_TYPE,
             'image' => $save_url,
         ]);
@@ -49,9 +49,9 @@ class ContactSliderController extends Controller
             'alert-type' => 'success',
         );
         return redirect::route('contact-slider.index')->with($notification);
-//        }catch (\Exception $e) {
-//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-//        }
+       }catch (\Exception $e) {
+           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+       }
     }
 
 
@@ -64,11 +64,11 @@ class ContactSliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return view('admin.contact.slider.edit', compact('sliders'));
+        return $this->view('contact.slider.edit', compact('sliders'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, $id)
     {
         try {
             $id = $request->id;
@@ -86,7 +86,6 @@ class ContactSliderController extends Controller
             Slider::findOrFail($id)->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
-                'desc' => $request->desc,
             ]);
 
             $notification = array(

@@ -8,18 +8,18 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">create slider</h4>
+                <h4 class="mb-0">edit slider</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
-                    <li class="breadcrumb-item active">create slider section</li>
+                    <li class="breadcrumb-item active">edit slider section</li>
                 </ol>
             </div>
         </div>
     </div>
 
-    {{--    @include('admin.message')--}}
+       @include('admin.message')
 
     <!-- main body -->
     <div class="row">
