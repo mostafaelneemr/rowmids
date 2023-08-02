@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin\ArchitecturePicture;
 use App\Models\admin\Brand;
+use App\Models\admin\ServiceDecoration;
 use App\Models\admin\Slider;
 use App\Models\admin\Team;
 use App\Models\admin\Testimonial;
@@ -29,8 +30,9 @@ class WebsiteController extends Controller
     public function service()
     {
         $sliders = Slider::where('slider_type', 'service')->where('is_publish', 'active')->get();
-        $pictures = ArchitecturePicture::get();
-        return view('website.service', compact('sliders', 'pictures'));
+        $decores = ServiceDecoration::get();
+        // $pictures = ArchitecturePicture::get();
+        return view('website.service', compact('sliders', 'decores'));
     }
 
     public function client()

@@ -31,11 +31,11 @@
                         <h2 class="widgettitle">About us</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                {{-- <li><a href="{{ route('about') }}">about_us</a></li> --}}
+                                <li><a href="{{ route('about') }}">about_us</a></li>
                                 <li><a href="team.html">Team</a></li>
                                 <li><a href="#">Career</a></li>
-                                {{-- <li><a href="{{ route('service') }}">service</a></li> --}}
-                                {{-- <li><a href="{{ route('contact') }}">contact</a></li> --}}
+                                <li><a href="{{ route('service') }}">service</a></li>
+                                <li><a href="{{ route('contact') }}">contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                         <h2 class="widgettitle">contact</h2>
                         <div class="footer-address">
                             <div class="bk-hover">
-                                {{-- <p>{{ setting('address') }}</p> --}}
-                                {{-- <p><a href="#">{{ setting('email') }}</a></p> --}}
-                                {{-- <p><a href="#">{{ setting('phone') }}</a></p> --}}
+                                <p>{{ setting('address') }}</p>
+                                <p><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
+                                <p><a href="#">{{ setting('phone') }}</a></p>
                             </div>
                             <div class="social-share social--transparent text-white">
-                                {{-- <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a> --}}
-                                {{-- <a href="{{ setting('twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a> --}}
-                                {{-- <a href="{{ setting('instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a> --}}
+                                <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a href="{{ setting('twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ setting('instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>
                                 {{-- <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
                                 <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a> --}}
                             </div>
@@ -170,9 +170,9 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright-left text-md-start text-center">
                         <ul class="bk-copyright-menu d-flex bk-hover justify-content-center justify-content-md-start flex-wrap flex-sm-nowrap">
-                            <li><a href="#">Our blog</a></li>
-                            <li><a href="#">Latest projects</a></li>
-                            {{-- <li><a href="{{ route('contact') }}">contact_us</a></li> --}}
+                            <li><a href="{{ route('about') }}">about</a></li>
+                            <li><a href="{{ route('service') }}">service</a></li>
+                            <li><a href="{{ route('contact') }}">contact_us</a></li>
                         </ul>
                     </div>
                 </div>

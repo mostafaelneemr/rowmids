@@ -64,28 +64,24 @@
                     <div class="basic-thine-line"></div>
 
                     <!-- Accordion Area -->
+                    @foreach($decores as $decore) 
                     <div class="bk-accordion-style--2 mt--55 wow move-up" id="accordionExampl3">
 
                         <div class="card">
                             <div class="card-header" id="headingsix">
                                 <h5 class="mb-0">
-                                    <a href="#" class="acc-btn" data-bs-toggle="collapse" data-bs-target="#collapsesix"
-                                        aria-expanded="false" aria-controls="collapsesix">
-                                        Minimal design
-                                    </a>
+                                    <a href="#" class="acc-btn" data-bs-toggle="collapse" data-bs-target="#collapsesix{{ $decore->id }}"
+                                    aria-expanded="false" aria-controls="collapsesix"> {{ $decore->title }} </a>
                                 </h5>
                             </div>
-
-                            <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExampl3">
-                                <div class="card-body">Lighting has the power to transform a room. From the
-                                    way it casts a glow to the way it looks, there is a reason designers
-                                    call it the jewelry of a room. Furthermore, lighting is probably the
-                                    most easily recognizable and instantly iconic piece you can invest on.
-                                </div>
+                            
+                            <div id="collapsesix{{ $decore->id }}" class="collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExampl3">
+                                <div class="card-body">{{ $decore->desc }}</div>
                             </div>
                         </div>
-
+                        
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

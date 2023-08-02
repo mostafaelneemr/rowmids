@@ -44,6 +44,7 @@
            </a>
            <ul id="service" class="collapse" data-parent="#sidebarnav">
               <li><a href="{{route('service-slider.index')}}">Slider</a></li>
+              <li><a href="{{route('service-home.index')}}">Home Service</a></li>
 
             </ul>
           </li>

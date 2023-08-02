@@ -95,8 +95,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         return view('admin.icons.themify');
     })->name('themify');
 
+});
 
 
+Route::get('pass', function () {
+    return view('auth.forgot-password');
 });
 
 
