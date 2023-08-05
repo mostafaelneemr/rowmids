@@ -50,84 +50,55 @@
     <!-- END REVOLUTION SLIDER -->
 </div>
 
-                        <!-- Start Single Career -->
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="career mb--30">
-                                <div class="inner">
 
-                                    <div class="title">
-                                        <h3 class="heading heading-h3 text-color-2">Project manager</h3>
-                                    </div>
+<div class="container">
+    <div class="row">
 
-                                    <div class="content mt--35">
-                                        <h6 class="heading heading-h6">ABOUT</h6>
-                                        <div class="desc mt--25">
-                                            <p class="bk_pra">Location: New York city.</p>
-                                            <div class="bkseparator--25"></div>
-                                            <p class="bk_pra">The quality, integrity, and commitment of our employees
-                                                are key factors in our company’s growth, market presence and our
-                                                ability to help our clients stay a step ahead of the competition.</p>
-                                        </div>
-                                    </div>
 
-                                    <div class="career-list mt--65">
-                                        <h6 class="heading heading-h6">REQUIREMENTS</h6>
-                                        <!-- Start Single List -->
-                                        <div class="bk-list--2 move-up wow mt--35">
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Ensure high quality delivery</h6>
-                                                </div>
-                                            </div>
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Experience with social media</h6>
-                                                </div>
-                                            </div>
+        <!-- Start Single Career -->
+        @foreach ($careers as $career)
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="career mb--30">
+                <div class="inner">
 
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Good command of Java, PHP, etc.</h6>
-                                                </div>
-                                            </div>
+                    <div class="title">
+                        <h3 class="heading heading-h3 text-color-2">{{ $career->title }}</h3>
+                    </div>
 
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Participate in business discussions</h6>
-                                                </div>
-                                            </div>
+                    <div class="content mt--35">
+                        <h6 class="heading heading-h6">ABOUT</h6>
+                        <div class="desc mt--25">
+                            <p class="bk_pra">Location: {{ $career->location }}</p>
+                            <div class="bkseparator--25"></div>
+                            <p class="bk_pra">{{ $career->desc }}</p>
+                        </div>
+                    </div>
 
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Good knowledge of technologies &
-                                                        architecture</h6>
-                                                </div>
-                                            </div>
-
-                                            <div class="list-header with-ckeck">
-                                                <div class="marker dark-color"></div>
-                                                <div class="title-wrap">
-                                                    <h6 class="heading heading-h5">Follow strictly HIPAA and PHI data
-                                                        security guidelines</h6>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- End Single List -->
-                                        <div class="career-btn mt--60">
-                                            <a class="brook-btn bk-btn-dark btn-sd-size btn-rounded space-between" href="#">Apply
-                                                now</a>
-                                        </div>
-                                    </div>
+                    <div class="career-list mt--65">
+                        <h6 class="heading heading-h6">REQUIREMENTS</h6>
+                        <!-- Start Single List -->
+                        <div class="bk-list--2 move-up wow mt--35">
+                                <div class="marker dark-color"></div>
+                                <div class="title-wrap">
+                                    <h6 class="heading heading-h5">{!! $career->req !!}</h6>
                                 </div>
                             </div>
+                           
+
                         </div>
-                        <!-- End Single Career -->
+                        <!-- End Single List -->
+                        <div class="career-btn mt--60">
+                            <a class="brook-btn bk-btn-dark btn-sd-size btn-rounded space-between" href="mailto:{{ setting('email') }}">Apply now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        <!-- End Single Career -->
+
+    </div>
+</div>
 
     @include('website.call')
 

@@ -21,7 +21,7 @@ class AboutSliderController extends Controller
 
     public function create()
     {
-        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
+        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
         return $this->view('about.slider.create');

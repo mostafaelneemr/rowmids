@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">edit slider</h4>
+                <h4 class="mb-0">Edit slider</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -26,7 +26,7 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
-                    <form class="form" action="{{route('home-slider.update', $sliders->id)}}" method="POST" enctype="multipart/form-data">
+                    <form class="form" action="{{route('service-slider.update', $sliders->id)}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
 
@@ -59,18 +59,10 @@
 
                                 <div class="form-group col-md-6">
                                     <label>sub title </label>
-                                    <input type="text" name="sub_title" class="form-control @error('sub_title') is-invalid @enderror" value="{{ $sliders->sub_title }}" required>
+                                    <input type="text" name="sub_title" class="form-control @error('sub_title') is-invalid @enderror" value="{{ $sliders->sub_title }}">
                                     @error('sub_title') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label>description </label>
-                                    <input type="text" name="desc" class="form-control @error('desc') is-invalid @enderror" value="{{ $sliders->desc }}" required>
-                                    @error('desc') <div class="alert alert-danger">{{ $message }}</div> @enderror
-                                </div>
                             </div>
 
                         </div>

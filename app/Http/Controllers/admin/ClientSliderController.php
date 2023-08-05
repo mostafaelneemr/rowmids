@@ -68,7 +68,7 @@ class ClientSliderController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, $id)
     {
         try {
             $id = $request->id;

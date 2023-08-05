@@ -45,19 +45,30 @@
            <ul id="service" class="collapse" data-parent="#sidebarnav">
               <li><a href="{{route('service-slider.index')}}">Slider</a></li>
               <li><a href="{{route('service-home.index')}}">Home Service</a></li>
+              <li><a href="{{route('architecture.index')}}">Architecture service </a></li>
 
             </ul>
           </li>
 
           <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#portfolio">
+              <div class="pull-left"><i class="fa fa-image"></i><span class="right-nav-text">Portfolio</span></div>
+              <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+            </a>
+            <ul id="portfolio" class="collapse" data-parent="#sidebarnav">
+               <li><a href="{{route('portfolio-slider.index')}}">Slider</a></li>
+               <li><a href="{{route('gallery.index')}}">Gallery</a></li>
+             </ul>
+           </li>
+
+          <li>
            <a href="javascript:void(0);" data-toggle="collapse" data-target="#client">
-             <div class="pull-left"><i class="fa fa-industry"></i><span class="right-nav-text">Client</span></div>
+             <div class="pull-left"><i class="fa fa-group"></i><span class="right-nav-text">Client</span></div>
              <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
            </a>
            <ul id="client" class="collapse" data-parent="#sidebarnav">
             <li><a href="{{route('client-slider.index')}}">Slider</a></li>
             <li><a href="{{route('brands.index')}}">Brands</a></li>
-
             </ul>
           </li>
 
@@ -91,7 +102,7 @@
 
           <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#icon">
-              <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Icons</span></div>
+              <div class="pull-left"><i class="fa fa-navicon"></i><span class="right-nav-text">Icons</span></div>
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
             </a>
             <ul id="icon" class="collapse" data-parent="#sidebarnav">

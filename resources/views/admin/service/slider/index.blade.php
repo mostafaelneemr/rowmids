@@ -14,8 +14,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3> Sliders
-                        @if (\App\Models\admin\Slider::where('slider_type' , 'home')->count() < 3)
-                            <a href="{{route('home-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
+                        @if (\App\Models\admin\Slider::where('slider_type' , 'service')->count() < 1)
+                            <a href="{{route('service-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
                         @endif
                     </h3>
                 </div>
@@ -43,8 +43,8 @@
                                 <td>{{$slider->sub_title}}</td>
                                 <td class={{$slider->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$slider->is_publish == 'active' ? 'published' : 'draft'}}</td>
                                 <td>
-                                    <a href="{{route('home-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('home-slider.destroy', $slider->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('service-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('service-slider.destroy', $slider->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     @if($slider->is_publish == 'active')
                                         <a href="{{ route('inactive.slider', $slider->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
                                     @else

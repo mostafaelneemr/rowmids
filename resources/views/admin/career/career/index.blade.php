@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    Brands
+    Careers
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3> Brands
-                        <a href="{{route('brands.create')}}" class="btn btn-primary text-white float-start m-4">Add Brand</a>
+                    <h3> Careers
+                        <a href="{{route('career-position.create')}}" class="btn btn-primary text-white float-start m-4">Add career</a>
                     </h3>
                 </div>
 
@@ -24,27 +24,27 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
-                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Description</th>
                             <th>Publish</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($brands as $item)
+                        @foreach($careers as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td><img src="{{asset($item->image)}}" style="width: 150px; height: 100px" alt=""></td>
-                                <td>{{$item->name}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->desc}}</td>
                                 <td class={{$item->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$item->is_publish == 'active' ? 'published' : 'draft'}}</td>
                                 <td>
-                                    <a href="{{route('brands.edit', $item->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('brands.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('career-position.edit', $item->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('career-position.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     @if($item->is_publish == 'active')
-                                        <a href="{{ route('inactive.brand', $item->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
+                                        <a href="{{ route('inactive.career', $item->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
                                     @else
-                                        <a href="{{ route('active.brand', $item->id) }}" class="btn btn-sm btn-success" title="Active Now"><i class="fa fa-arrow-up"></i></a>
+                                        <a href="{{ route('active.career', $item->id) }}" class="btn btn-sm btn-success" title="Active Now"><i class="fa fa-arrow-up"></i></a>
                                     @endif
                                 </td>
                             </tr>

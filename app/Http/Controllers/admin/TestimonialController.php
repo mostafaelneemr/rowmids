@@ -99,7 +99,7 @@ class TestimonialController extends Controller
         //
     }
 
-    public function InactiveSlider($id)
+    public function inActiveTestimonial($id)
     {
         Testimonial::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
@@ -110,7 +110,7 @@ class TestimonialController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function ActiveSlider($id)
+    public function ActiveTestimonial($id)
     {
         Testimonial::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(

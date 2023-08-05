@@ -1,5 +1,25 @@
 @extends('layouts.website.master')
 
+@section('style')
+
+    <style>
+        .bg-thumb {
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                background-size: cover;
+                -webkit-transform: scale(.9);
+                -ms-transform: scale(.9);
+                transform: scale(.9);
+                border-radius: 50%;
+                -webkit-transition: all 1.5s;
+                transition: all 1.5s;
+        }
+    </style>
+
+@endsection
+
 @section('content')
 
 <div class="slider-revoluation">
@@ -92,119 +112,40 @@
 <div class="brook-service-area architecture-service-container">
 
     <!-- Start Bg Thumbnail -->
+    @foreach ($pictures as $picture)
     <div class="architecture-bg-thumbnail">
         <div class="inner">
             <!-- Start Single Image -->
             <div class="architecture-hover-image active">
-                <div class="bg-thumb bg-image--5"></div>
+                <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')""></div>
             </div>
             <!-- End Single Image -->
-
-            <!-- Start Single Image -->
-            <div class="architecture-hover-image">
-                <div class="bg-thumb bg-image--2"></div>
-            </div>
-            <!-- End Single Image -->
-
-            <!-- Start Single Image -->
-            <div class="architecture-hover-image">
-                <div class="bg-thumb bg-image--3"></div>
-            </div>
-            <!-- End Single Image -->
-
-            <!-- Start Single Image -->
-            <div class="architecture-hover-image">
-                <div class="bg-thumb bg-image--4"></div>
-            </div>
-            <!-- End Single Image -->
-
+            
         </div>
     </div>
+    @endforeach
     <!-- End Bg Thumbnail -->
 
     <div class="row">
         <!-- Start Single Service -->
+        @foreach ($architectures as $architecture)
+            
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
                 <div class="architecture-inner">
                     <div class="icon mb--25">
-                        <img src="img/service/icon-box/home-architect-service-01-image.png" alt="Multipurpose">
+                        <img src="{{ $architecture->icon }}" alt="Multipurpose">
                     </div>
                     <div class="content">
-                        <h4 class="heading heading-h4 text-white">Planning Construction</h4>
+                        <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
                         <div class="bkseparator--20"></div>
-                        <p class="bk_pra">Prepare a good construction plan to develop the budget and
-                            schedule the work</p>
-                        <div class="view-more-btn">
-                            <a href="#"><span>More details</span> <span class="btn-arrow"></span></a>
+                        <p class="bk_pra">{{ $architecture->desc }}</p>
+                           
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End Single Service -->
-
-        <!-- Start Single Service -->
-        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="architecture-service" data-image3="img/slider/type/bg-image-20.jpg">
-                <div class="architecture-inner">
-                    <div class="icon mb--25">
-                        <img src="img/service/icon-box/home-architect-service-02-image.png" alt="Multipurpose">
-                    </div>
-                    <div class="content">
-                        <h4 class="heading heading-h4 text-white">Landscape Architect</h4>
-                        <div class="bkseparator--20"></div>
-                        <p class="bk_pra">Analyze, plan, design, manage, and nurture the built and natural
-                            environments.</p>
-                        <div class="view-more-btn">
-                            <a href="#"><span>More details</span> <span class="btn-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Single Service -->
-
-        <!-- Start Single Service -->
-        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="architecture-service" data-image3="img/slider/type/bg-image-21.jpg">
-                <div class="architecture-inner">
-                    <div class="icon mb--25">
-                        <img src="img/service/icon-box/home-architect-service-03-image.png" alt="Multipurpose">
-                    </div>
-                    <div class="content">
-                        <h4 class="heading heading-h4 text-white">Urban Design</h4>
-                        <div class="bkseparator--20"></div>
-                        <p class="bk_pra">Include designing and shaping the physical features of cities,
-                            towns and buildings.</p>
-                        <div class="view-more-btn">
-                            <a href="#"><span>More details</span> <span class="btn-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Single Service -->
-
-        <!-- Start Single Service -->
-        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="architecture-service" data-image3="img/slider/type/bg-image-22.jpg">
-                <div class="architecture-inner">
-                    <div class="icon mb--25">
-                        <img src="img/service/icon-box/home-architect-service-04-image.png" alt="Multipurpose">
-                    </div>
-                    <div class="content">
-                        <h4 class="heading heading-h4 text-white">Infrastructure Analysis</h4>
-                        <div class="bkseparator--20"></div>
-                        <p class="bk_pra">Provide analyses of infrastructure and other essential
-                            constructional conditions.</p>
-                        <div class="view-more-btn">
-                            <a href="#"><span>More details</span> <span class="btn-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @endforeach
         <!-- End Single Service -->
 
     </div>

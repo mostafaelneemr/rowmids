@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -21,16 +22,16 @@ class ServiceSliderController extends Controller
 
     public function create()
     {
-        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
+        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
         return $this->view('service.slider.create');
     }
 
 
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-//        try{
+       try{
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(1920, 1000)->save('upload/service/' . $name_gen);
@@ -39,7 +40,6 @@ class ServiceSliderController extends Controller
         Slider::create([
             'title' => $request->title,
             'sub_title' => $request->sub_title,
-            'desc' => $request->desc,
             'slider_type' => static::SLIDER_TYPE,
             'image' => $save_url,
         ]);
@@ -49,9 +49,9 @@ class ServiceSliderController extends Controller
             'alert-type' => 'success',
         );
         return redirect::route('service-slider.index')->with($notification);
-//        }catch (\Exception $e) {
-//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-//        }
+       }catch (\Exception $e) {
+           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+       }
     }
 
 
@@ -68,7 +68,7 @@ class ServiceSliderController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, $id)
     {
         try {
             $id = $request->id;
@@ -86,7 +86,6 @@ class ServiceSliderController extends Controller
             Slider::findOrFail($id)->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
-                'desc' => $request->desc,
             ]);
 
             $notification = array(

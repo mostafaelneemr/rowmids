@@ -14,34 +14,34 @@ class ArchitectureController extends Controller
     public function index()
     {
         $architectures = Architecture::all();
-        return $this->view('about.testimonial.index', compact('architectures'));
+        return $this->view('service.architecture.index', compact('architectures'));
     }
 
     public function create()
     {
-        return $this->view('about.testimonial.create');
+        return $this->view('service.architecture.create');
     }
 
 
     public function store(Request $request)
     {
        try{
-        $image = $request->file('image');
+        $image = $request->file('icon');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(60, 60)->save('upload/about/' . $name_gen);
-        $save_url = 'upload/about/' . $name_gen;
+        Image::make($image)->resize(71, 71)->save('upload/service/' . $name_gen);
+        $save_url = 'upload/service/' . $name_gen;
 
         Architecture::create([
-            'name' => $request->name,
-            'desc' => $request->title,
-            'image' => $save_url,
+            'title' => $request->title,
+            'desc' => $request->desc,
+            'icon' => $save_url,
         ]);
 
         $notification = array(
             'message' => 'Architecture Inserted Successfully',
             'alert-type' => 'success',
         );
-        return redirect::route('testimonials.index')->with($notification);
+        return redirect::route('architecture.index')->with($notification);
        }catch (\Exception $e) {
            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
        }
@@ -57,7 +57,7 @@ class ArchitectureController extends Controller
     public function edit($id)
     {
         $architectures = Architecture::findOrFail($id);
-        return $this->view('about.testimonial.edit', compact('architectures'));
+        return $this->view('service.architecture.edit', compact('architectures'));
     }
 
 
@@ -67,18 +67,18 @@ class ArchitectureController extends Controller
             $id = $request->id;
             $old_image = $request->old_image;
 
-            if($request->file('image')){
+            if($request->file('icon')){
                 @unlink($old_image);
-                $image = $request->file('image');
+                $image = $request->file('icon');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(60,60)->save('upload/about/'.$name_gen);
-                $save_url = 'upload/about/'.$name_gen;
-                Architecture::findOrFail($id)->update(['image' => $save_url]);
+                Image::make($image)->resize(71,71)->save('upload/service/'.$name_gen);
+                $save_url = 'upload/service/'.$name_gen;
+                Architecture::findOrFail($id)->update(['icon' => $save_url]);
             }
 
             Architecture::findOrFail($id)->update([
-                'name' => $request->name,
-                'desc' => $request->title,
+                'title' => $request->title,
+                'desc' => $request->desc,
 
             ]);
 
@@ -86,7 +86,7 @@ class ArchitectureController extends Controller
                 'message' => 'Architecture updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect::route('testimonials.index')->with($notification);
+            return redirect::route('architecture.index')->with($notification);
         } catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }

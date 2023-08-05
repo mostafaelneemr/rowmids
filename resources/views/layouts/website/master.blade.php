@@ -42,10 +42,19 @@
                 </div>
                 <div class="menu-content">
                     <ul class="menulist object-custom-menu">
-                        {{-- <li><a href="{{ route('home') }}"><span>home</span></a></li> --}}
-                        {{-- <li><a href="{{ route('about') }}"><span>about</span></a></li> --}}
+                        <li><a href="{{ route('home') }}"><span>Home</span></a></li>
 
-                        {{-- <li><a href="{{ route('service') }}"><span>service</span></a></li> --}}
+                        <li><a href="{{ route('about') }}"><span>About</span></a></li>
+
+                        <li><a href="{{ route('service') }}"><span>Service</span></a></li>
+
+                        <li><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
+                        
+                        <li><a href="{{ route('client') }}"><span>Client</span></a></li>
+
+                        <li><a href="{{ route('career') }}"><span>Career</span></a></li>
+
+                        <li><a href="{{ route('contact') }}"><span>Contact</span></a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"><span>Pages</span></a>
                             <!-- Start Dropdown Menu -->
@@ -91,13 +100,21 @@
                     <nav class="page_nav">
                         <ul class="mainmenu">
 
-                            {{-- <li class="lavel-1"><a href="{{ route('home') }}"><span>home</span></a></li> --}}
+                            <li class="lavel-1"><a href="{{ route('home') }}"><span>Home</span></a></li>
 
-                            {{-- <li class="lavel-1"><a href="{{ route('about') }}"><span>about</span></a></li> --}}
+                            <li class="lavel-1"><a href="{{ route('about') }}"><span>About</span></a></li>
 
-                            {{-- <li class="lavel-1"><a href="{{ route('service') }}"><span>service</span></a></li> --}}
+                            <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
 
-                            {{-- <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>Pages</span></a>
+                            <li class="lavel-1"><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
+                            
+                            <li class="lavel-1"><a href="{{ route('client') }}"><span>Client</span></a></li>
+
+                            <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
+
+                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact</span></a></li>
+
+                            {{-- <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>Client</span></a>
 
                                 <!-- Start Dropdown Menu -->
                                 <ul class="dropdown__menu">
@@ -147,9 +164,9 @@
                                 <p class="bk_pra font-16"><a href="mailto:{{setting('email')}}" target="_blank">{{setting('email')}}</a></p>
                             </div>
                             <ul class="social-icon text-start tooltip-layout icon-size-large">
-                                {{-- <li class="facebook"><a href="{{ setting('facebook') }}" class="link hint--bounce hint--top hint--white" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li> --}}
-                                {{-- <li class="twitter"><a href="{{ setting('twitter') }}" class="link hint--bounce hint--top hint--white" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li> --}}
-                                {{-- <li class="instagram"><a href="{{ setting('instagram') }}" class="link hint--bounce hint--top hint--white" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li> --}}
+                                <li class="facebook"><a href="{{ setting('facebook') }}" class="link hint--bounce hint--top hint--white" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="{{ setting('twitter') }}" class="link hint--bounce hint--top hint--white" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li class="instagram"><a href="{{ setting('instagram') }}" class="link hint--bounce hint--top hint--white" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                             </ul>
 
                         </div>

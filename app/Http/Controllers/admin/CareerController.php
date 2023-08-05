@@ -24,7 +24,6 @@ class CareerController extends Controller
     public function store(Request $request)
     {
        try{
-
         Career::create([
                 'title' => $request->title,
                 'location' => $request->location,
@@ -49,8 +48,8 @@ class CareerController extends Controller
 
     public function edit($id)
     {
-        $sliders = Career::findOrFail($id);
-        return $this->view('career.career.edit', compact('sliders'));
+        $careers = Career::findOrFail($id);
+        return $this->view('career.career.edit', compact('careers'));
     }
 
     public function update(Request $request, $id)
@@ -66,10 +65,10 @@ class CareerController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'slider updated Successfully',
+                'message' => 'Career Position updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect::route('home-slider.index')->with($notification);
+            return redirect::route('career-position.index')->with($notification);
         } catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
@@ -84,22 +83,22 @@ class CareerController extends Controller
         return $this->response(true, 200, $message );
     }
 
-    public function InactiveSlider($id)
+    public function InactiveCareer($id)
     {
         Career::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
-            'message' => 'Slider is Inactive',
+            'message' => 'Career Position is Inactive',
             'alert-type' => 'info',
         );
 
         return redirect()->back()->with($notification);
     }
 
-    public function ActiveSlider($id)
+    public function ActiveCareer($id)
     {
         Career::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(
-            'message' => 'Slider is Active',
+            'message' => 'Career Position is Active',
             'alert-type' => 'success',
         );
 

@@ -92,7 +92,7 @@ class BrandController extends Controller
         //
     }
 
-    public function InactiveSlider($id)
+    public function InactiveBrand($id)
     {
         Brand::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
@@ -103,7 +103,7 @@ class BrandController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function ActiveSlider($id)
+    public function ActiveBrand($id)
     {
         Brand::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(

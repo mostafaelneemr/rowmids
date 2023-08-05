@@ -12,13 +12,13 @@ class ArchitecturePictureController extends Controller
 {
     public function index()
     {
-        $pictures = ArchitecturePicture::all();
-        return $this->view('service.architecture.index', compact('pictures'));
+        // $pictures = ArchitecturePicture::all();
+        return $this->view('service.architecture.index');
     }
 
     public function create()
     {
-        return $this->view('client.brand.create');
+        return back();
     }
 
     public function store(Request $request)
@@ -26,8 +26,8 @@ class ArchitecturePictureController extends Controller
         try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(96, 37)->save('upload/client/' . $name_gen);
-            $save_url = 'upload/client/' . $name_gen;
+            Image::make($image)->resize(1920, 650)->save('upload/service/' . $name_gen);
+            $save_url = 'upload/service/' . $name_gen;
     
             ArchitecturePicture::create([ 'image' => $save_url, ]);
     
@@ -35,7 +35,7 @@ class ArchitecturePictureController extends Controller
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect::route('architecture-picture.index')->with($notification);
+            return redirect::route('architecture.index')->with($notification);
         }catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
@@ -50,33 +50,12 @@ class ArchitecturePictureController extends Controller
 
     public function edit($id)
     {
-        $brands = ArchitecturePicture::findOrFail($id);
-        return $this->view('client.brand.edit', compact('brands'));
+        return back();
     }
 
     public function update(Request $request, $id)
     {
-        try {
-            $id = $request->id;
-            $old_image = $request->old_image;
-
-            if($request->file('image')){
-                @unlink($old_image);
-                $image = $request->file('image');
-                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(96,37)->save('upload/client/'.$name_gen);
-                $save_url = 'upload/client/'.$name_gen;
-                ArchitecturePicture::findOrFail($id)->update(['image' => $save_url]);
-            }
-
-            $notification = array(
-                'message' => 'slider updated Successfully',
-                'alert-type' => 'info',
-            );
-            return redirect::route('brands.index')->with($notification);
-        } catch (\Exception $e) {
-            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-        }
+        return back();
     }
 
     public function destroy($id)

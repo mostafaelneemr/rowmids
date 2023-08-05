@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
+use App\Models\admin\Career;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -105,6 +106,28 @@ class CareerSliderController extends Controller
         $slider->where('id',$id)->delete();
 
         return $this->response(true, 200, $message );
+    }
+
+    public function InactiveCareer($id)
+    {
+        Career::findOrFail($id)->update(['is_publish' => 'in-active']);
+        $notification = array(
+            'message' => 'Brand is Inactive',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ActiveCareer($id)
+    {
+        Career::findOrFail($id)->update(['is_publish' => 'active']);
+        $notification = array(
+            'message' => 'Brand is Active',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
     }
     
 }

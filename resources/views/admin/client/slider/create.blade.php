@@ -48,7 +48,7 @@
 
                                 <div class="form-group col-md-6">
                                     <label>sub title </label>
-                                    <input type="text" name="sub_title" class="form-control @error('sub_title') is-invalid @enderror" value="{{ old('sub_title') }}" required>
+                                    <input type="text" name="sub_title" class="form-control @error('sub_title') is-invalid @enderror" value="{{ old('sub_title') }}">
                                     @error('sub_title') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 

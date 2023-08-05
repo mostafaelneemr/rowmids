@@ -42,7 +42,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>name </label>
-                                    <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
                                     @error('name') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('location');
-            $table->text('desc');
-            $table->text('req');
+            $table->mediumText('desc');
+            $table->mediumText('req');
             $table->enum('is_publish', ['active', 'in-active'])->default('active');
             $table->timestamps();
         });

@@ -61,6 +61,101 @@
         <!-- END REVOLUTION SLIDER -->
     </div>
 
+  <!-- Start Breadcaump Area -->
+  <div class="brook-breadcaump-area pt--130 pb--145 bg_color--1 breadcaump-title-bar">
+    <div class="container-fluid plr--150 plr_sm--20">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcaump-inner text-center">
+                    <h1 class="heading heading-h1 line-height-1-5">{{ setting('title_team') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcaump Area -->
+
+ <!-- Start Team Area -->
+ <div class="brook-team-area bg_color--1 slick-arrow-hover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="brook-element-carousel slick-arrow-center slick-arrow-rounded"
+                    data-slick-options='{
+                    "spaceBetween": 15, 
+                    "slidesToShow": 3, 
+                    "slidesToScroll": 1, 
+                    "arrows": true, 
+                    "infinite": true,
+                    "dots": false,
+                    "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "ion ion-ios-arrow-back" },
+                    "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "ion ion-ios-arrow-forward" }
+                }'
+                    data-slick-responsive='[
+                {"breakpoint":991, "settings": {"slidesToShow": 2}},
+                {"breakpoint":690, "settings": {"slidesToShow": 2}},
+                {"breakpoint":590, "settings": {"slidesToShow": 1}}
+                ]'>
+                    
+                    @foreach ($teams as $team)
+                    <!-- Start Single Team -->
+                    <div class="team team__style--2 move-up wow" >
+                        <div class="thumb">
+                            <img src="{{ $team->image }}" alt="team Images">
+                            <div class="overlay"></div>
+                            <ul class="social-icon icon-solid-rounded icon-size-medium text-center">
+                                <li class="facebook"><a href="{{ $team->facebook }}" class="link" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="{{ $team->twitter }}" class="link" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li class="instagram"><a href="{{ $team->instagram }}" class="link" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                            <div class="team-info">
+                                <div class="info">
+                                    <h5>{{ $team->name }}</h5>
+                                    <span>{{ $team->title }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Team Area -->
+
+
+ <!-- Start Portfolio Area -->
+ <div class="brook-portfolio-area ptb--100 ptb-md--80 ptb-sm--60 bg_color--1 basic-thine-line">
+    <div class="container">
+        <div class="row row--3">
+            <div class="col-lg-12 mb--60">
+                <div class="brook-section-title text-center">
+                    {{-- <h3 class="heading heading-h3 mb--30">Style Parallax</h3> --}}
+                </div>
+            </div>
+
+            <div class="paralax-grid">
+                <!-- Start Single Portfolio -->
+                @foreach ($galleries as $gallery)
+                <div class="single-paralax">
+                    <div class="paralax-portfolio" data-tilt>
+                        <div class="portfolio-bg" style="background-image: url('{{ $gallery->image }}')"></div>
+                    </div>
+                </div>
+                @endforeach
+                <!-- End Single Portfolio -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Portfolio Area -->
+
+
     <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60">
         <div class="wavify-wrapper">
             <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wavify-item"
@@ -81,7 +176,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-12 text-center ptb-md--80 ptb-sm--80">
                     <div class="brook-section-title text-start title-max-width plr_sm--50">
-                        <h3 class="heading heading-h3">Feedbacks <br>from our<br> clients.</h3>
+                        <h3 class="heading heading-h3">{{ setting('about_testimonial') }}</h3>
                     </div>
                 </div>
 
@@ -89,7 +184,7 @@
                     <div class="row">
                         @foreach ($testimonials as $testimonial)
                         <!-- Start Single Testimonial -->
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
                             <div class="testimonial testimonial_style--1">
                                 <div class="content">
                                     <p class="bk_pra">“{{ $testimonial->desc }}”</p>
@@ -115,6 +210,39 @@
             </div>
         </div>
     </div>
+
+    
+<section class="height-auto pb_sm--0" data-skin="black">
+    <div class="presentation-slider-wrapper">
+        <div class="presentation-inner">
+            <div class="inner brand-inner w-100">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="bk-title--default text-start brook-section-title-business">
+                                <h5>{{ setting('title_brand') }}</h5>
+                                <h3 class="fw-200">{{ setting('header_brand') }}</h3>
+                                <div class="separator"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt--60 mt_md--50 mt_sm--30">
+                        <div class="col-lg-12">
+                            <div class="brand-wrapper">
+                                <div class="brand__list brand-default brand-style--2 brand-business">
+                                    @foreach ($brands as $brand)
+                                    <div class="brand"><a href="#"><img src="{{ $brand->image }}" alt="logo image"></a> </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     @include('website.call')
 

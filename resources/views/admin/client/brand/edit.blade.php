@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
-                    <li class="breadcrumb-item active">edit slider section</li>
+                    <li class="breadcrumb-item active">edit brand section</li>
                 </ol>
             </div>
         </div>
