@@ -57,7 +57,7 @@
                                     <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $architectures->title }}" required>
                                     @error('title') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
-                                
+
                                 <div class="form-group col-md-6">
                                     <label>Description </label>
                                     <input type="text" name="desc" class="form-control @error('desc') is-invalid @enderror" value="{{ $architectures->desc }}" required>
