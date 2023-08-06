@@ -24,7 +24,7 @@ class TestimonialController extends Controller
 
     public function store(Request $request)
     {
-//        try{
+       try{
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(60, 60)->save('upload/about/' . $name_gen);
@@ -33,7 +33,7 @@ class TestimonialController extends Controller
         Testimonial::create([
             'name' => $request->name,
             'title' => $request->title,
-            'desc' => $request->title,
+            'desc' => $request->desc,
             'image' => $save_url,
         ]);
 
@@ -42,9 +42,9 @@ class TestimonialController extends Controller
             'alert-type' => 'success',
         );
         return redirect::route('testimonials.index')->with($notification);
-//        }catch (\Exception $e) {
-//            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-//        }
+       }catch (\Exception $e) {
+           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+       }
     }
 
 
@@ -79,7 +79,7 @@ class TestimonialController extends Controller
             Testimonial::findOrFail($id)->update([
                 'name' => $request->name,
                 'title' => $request->title,
-                'desc' => $request->title,
+                'desc' => $request->desc,
 
             ]);
 
