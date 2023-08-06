@@ -63,7 +63,7 @@
     <!-- END REVOLUTION SLIDER -->
 </div>
 
-<div class="home-decoration-area bg_color--1">
+<div class="home-decoration-area bg_color--1 mt-3 mb-3">
     <div class="container-fluid">
         <div class="row align-items-center no-gutters">
             <div class="col-lg-6">

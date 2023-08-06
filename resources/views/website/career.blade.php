@@ -57,10 +57,10 @@
 
         <!-- Start Single Career -->
         @foreach ($careers as $career)
-        <div class="col-lg-6 col-md-6 col-12">
+        <div class="col-lg-6 col-md-6 col-12 mt-2">
             <div class="career mb--30">
                 <div class="inner">
-
+                    
                     <div class="title">
                         <h3 class="heading heading-h3 text-color-2">{{ $career->title }}</h3>
                     </div>
@@ -82,10 +82,10 @@
                                 <div class="title-wrap">
                                     <h6 class="heading heading-h5">{!! $career->req !!}</h6>
                                 </div>
-                            </div>
+                        </div>
                            
 
-                        </div>
+                    </div>
                         <!-- End Single List -->
                         <div class="career-btn mt--60">
                             <a class="brook-btn bk-btn-dark btn-sd-size btn-rounded space-between" href="mailto:{{ setting('email') }}">Apply now</a>
@@ -93,11 +93,10 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
         <!-- End Single Career -->
 
-    </div>
 </div>
 
     @include('website.call')
