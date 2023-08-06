@@ -41,7 +41,7 @@
                              data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                              data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                              data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                             style="z-index: 6; min-width: 1180px; max-width: 1180px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">{{ $slider->desc }} </div>
+                             style="z-index: 6; min-width: 1180px; max-width: 1180px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">{{ $slider->sub_title }} </div>
 
                         <!-- LAYER NR. 3 -->
                         <a class="tp-caption rev-btn smooth-scroll-link" href="{{ setting('slider_link') }}" target="_self" id="slide-16-layer-24"
