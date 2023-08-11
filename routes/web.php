@@ -19,6 +19,7 @@ use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\admin\ArchitecturePicture;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SendEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,9 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
 
     Route::group(['prefix' => '/contact'], function() {
         Route::resource('contact-slider', ContactSliderController::class);
+        Route::get('messages', [SendEmailController::class, 'adminindex'])->name('contact.messages');
+        Route::post('messages/{id}', [SendEmailController::class, 'deletemessage'])->name('deletemessage');
+
     });
 
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');
@@ -125,3 +129,4 @@ Route::get('/client', [WebsiteController::class, 'client'])->name('client');
 Route::get('/portfolio', [WebsiteController::class, 'portfolio'])->name('portfolio');
 Route::get('/career', [WebsiteController::class, 'career'])->name('career');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
+Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');

@@ -81,28 +81,28 @@
                 </div>
                 <div class="col-lg-6 col-12 pl--50">
                     <div class="contact-form">
-                        <form id="contact-form" action="http://whizthemes.com/shohel/php/mail.php">
+                        <form action="{{route('sendmail')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input name="con_name" type="text" placeholder="Name *">
+                                    <input name="name" type="text" placeholder="Name *">
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <input name="con_email" type="text" placeholder="Email *">
+                                    <input name="email" type="text" placeholder="Email *">
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <input type="text" name="con_phone" placeholder="Phone number">
+                                    <input type="text" name="phone" placeholder="Phone number">
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <textarea name="con_message" placeholder="Your message"></textarea>
+                                    <textarea name="message" placeholder="Your message"></textarea>
                                 </div>
 
 
                                 <div class="col-lg-12 mt--30">
-                                    <input type="submit" value="Send message">
-                                    <p class="form-messege"></p>
+                                    <button type="submit" class="btn btn-primary">Send message</button>
                                 </div>
                             </div>
                         </form>

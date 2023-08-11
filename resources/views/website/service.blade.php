@@ -117,7 +117,7 @@
         <div class="inner">
             <!-- Start Single Image -->
             <div class="architecture-hover-image active">
-                <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')""></div>
+                <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')"></div>
             </div>
             <!-- End Single Image -->
             

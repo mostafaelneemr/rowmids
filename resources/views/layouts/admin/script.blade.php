@@ -3,6 +3,9 @@
 <script src="{{ URL::asset('backend/assets/js/jquery-3.3.1.min.js') }}"></script>
 <!-- plugins-jquery -->
 <script src="{{ URL::asset('backend/assets/js/plugins-jquery.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/js/jquery.blockUI.js') }}"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 <!-- plugin_path -->
 <script type="text/javascript">var plugin_path = '{{ asset('backend/assets/js') }}/';</script>
 <!-- chart -->

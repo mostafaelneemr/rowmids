@@ -68,6 +68,7 @@
 
 @push('script')
     <script type="text/javascript">
+          
         function deleteSlider($routeName,$reload){
 
             if(!confirm("Do you want to delete this Slider?")){ return false; }
@@ -83,11 +84,14 @@
                 },
                 function(response){
                     removeLoading();
+
+                    console.log(response);
                     if(isJSON(response)){
+
                         $data = response;
                         if($data.status == true){
+                            location.reload();
                             toastr.success($data.message, 'Success !', {"closeButton": true});
-                            $('#table_id').ajax.reload();
                         }else{
                             toastr.error($data.message, 'Error !', {"closeButton": true});
                         }

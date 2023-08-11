@@ -97,6 +97,21 @@ class AboutSliderController extends Controller
 
     public function destroy($id)
     {
-        //
+        if(Slider::find($id)->delete()){
+
+            $response = [
+                "status" => true,
+                "message" => "Slider deleted successfully."
+            ];   
+        }else{
+            
+        $response = [
+            "status" => false,
+            "message" => "Slider Can\'t deleted successfully."
+        ];
+        
+        }
+  
+        return response()->json($response);
     }
 }

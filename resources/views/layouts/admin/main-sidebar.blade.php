@@ -91,6 +91,8 @@
            </a>
            <ul id="contact" class="collapse" data-parent="#sidebarnav">
              <li><a href="{{route('contact-slider.index')}}">Slider</a></li>
+             <li><a href="{{route('contact.messages')}}">Messages</a></li>
+
             </ul>
           </li>
 
