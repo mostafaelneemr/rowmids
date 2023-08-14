@@ -46,9 +46,9 @@
                                 <td>{{$item->twitter}}</td>
                                 <td>{{$item->instagram}}</td>
                                 <td class={{$item->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$item->is_publish == 'active' ? 'published' : 'draft'}}</td>
-                                <td>
+                                <td width="18%">
                                     <a href="{{route('teams.edit', $item->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('teams.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:void(0);" onclick="deleteTeam( '{{route('teams.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     @if($item->is_publish == 'active')
                                         <a href="{{ route('inactive.team', $item->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
                                     @else
@@ -72,9 +72,9 @@
 
 @push('script')
     <script type="text/javascript">
-        function deleteSlider($routeName,$reload){
+        function deleteTeam($routeName,$reload){
 
-            if(!confirm("Do you want to delete this Slider?")){ return false; }
+            if(!confirm("Do you want to delete this Team?")){ return false; }
 
             if($reload == undefined){ $reload = 3000; }
             addLoading();
@@ -90,8 +90,8 @@
                     if(isJSON(response)){
                         $data = response;
                         if($data.status == true){
+                            location.reload();
                             toastr.success($data.message, 'Success !', {"closeButton": true});
-                            $('#table_id').ajax.reload();
                         }else{
                             toastr.error($data.message, 'Error !', {"closeButton": true});
                         }

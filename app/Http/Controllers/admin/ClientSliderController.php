@@ -7,6 +7,7 @@ use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ClientSliderController extends Controller
@@ -22,7 +23,7 @@ class ClientSliderController extends Controller
 
     public function create()
     {
-        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() < 1){
+        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
             return $this->view('client.slider.create');
@@ -100,9 +101,13 @@ class ClientSliderController extends Controller
 
     public function destroy(Slider $slider,$id)
     {
-        $message = __( 'Slider deleted successfully' );
-        $slider->where('id',$id)->delete();
+        $slider = Slider::findOrFail($id);
+        $image = Str::after($slider->image, 'upload/client/');
+        $image = public_path('upload/client/' . $image);
+        unlink($image);
+        $slider->delete();
 
+        $message = __( 'Slider deleted successfully' );
         return $this->response(true, 200, $message );
     }
 }

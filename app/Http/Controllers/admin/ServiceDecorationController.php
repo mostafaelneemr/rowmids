@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\ServiceDecoration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
 
 class ServiceDecorationController extends Controller
@@ -28,7 +29,7 @@ class ServiceDecorationController extends Controller
                 'title' => $request->title,
                 'desc' => $request->desc,
             ]);
-    
+
             $notification = array(
                 'message' => 'Service data Inserted Successfully',
                 'alert-type' => 'success',
@@ -74,7 +75,11 @@ class ServiceDecorationController extends Controller
 
     public function destroy($id)
     {
-        //
+        $service = ServiceDecoration::findOrFail($id);
+        $service->delete();
+
+        $message = __( 'Service Decoration deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
 }

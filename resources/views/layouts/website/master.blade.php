@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx" >
 
-<head>    
+<head>
     @include('layouts.website.style')
 </head>
 
@@ -44,15 +44,25 @@
                     <ul class="menulist object-custom-menu">
                         <li><a href="{{ route('home') }}"><span>Home</span></a></li>
 
-                        <li><a href="{{ route('about') }}"><span>About</span></a></li>
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'about_page')->first()->value == '1')
+                            <li><a href="{{ route('about') }}"><span>About</span></a></li>
+                        @endif
 
-                        <li><a href="{{ route('service') }}"><span>Service</span></a></li>
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'service_page')->first()->value == '1')
+                            <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
+                        @endif
 
-                        <li><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
-                        
-                        <li><a href="{{ route('client') }}"><span>Client</span></a></li>
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'portfolio_page')->first()->value == '1')
+                            <li class="lavel-1"><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
+                        @endif
 
-                        <li><a href="{{ route('career') }}"><span>Career</span></a></li>
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'client_page')->first()->value == '1')
+                            <li class="lavel-1"><a href="{{ route('client') }}"><span>Client</span></a></li>
+                        @endif
+
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'career_page')->first()->value == '1')
+                            <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
+                        @endif
 
                         <li><a href="{{ route('contact') }}"><span>Contact</span></a></li>
 
@@ -63,7 +73,7 @@
                         </li> --}}
 
                         {{-- <li class="has-mega-menu"><a href="inner-page/interior/shop.html"><span>Shop</span></a> --}}
-                        {{-- 
+                        {{--
                                 <!-- Start Dropdown Menu -->
                                 <ul class="object-submenu">
                                     <li><a href="inner-page/interior/shop.html"><span>Shop</span></a></li>
@@ -102,15 +112,25 @@
 
                             <li class="lavel-1"><a href="{{ route('home') }}"><span>Home</span></a></li>
 
-                            <li class="lavel-1"><a href="{{ route('about') }}"><span>About</span></a></li>
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'about_page')->first()->value == '1')
+                                <li><a href="{{ route('about') }}"><span>About</span></a></li>
+                            @endif
 
-                            <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'service_page')->first()->value == '1')
+                                <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
+                            @endif
 
-                            <li class="lavel-1"><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
-                            
-                            <li class="lavel-1"><a href="{{ route('client') }}"><span>Client</span></a></li>
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'portfolio_page')->first()->value == '1')
+                                <li class="lavel-1"><a href="{{ route('portfolio') }}"><span>Portfolio</span></a></li>
+                            @endif
 
-                            <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'client_page')->first()->value == '1')
+                                <li class="lavel-1"><a href="{{ route('client') }}"><span>Client</span></a></li>
+                            @endif
+
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'career_page')->first()->value == '1')
+                                <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
+                            @endif
 
                             <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact</span></a></li>
 
@@ -351,7 +371,7 @@
         <main class="page-content">
 
             @yield('content')
-            
+
         </main>
         <!--// Page Conttent -->
 

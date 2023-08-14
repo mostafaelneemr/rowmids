@@ -8,6 +8,7 @@ use App\Models\admin\Career;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class CareerSliderController extends Controller
@@ -32,15 +33,14 @@ class CareerSliderController extends Controller
     public function store(SliderRequest $request)
     {
        try{
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(1920, 1000)->save('upload/career/' . $name_gen);
-        $save_url = 'upload/career/' . $name_gen;
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(1920, 1000)->save('upload/career/' . $name_gen);
+            $save_url = 'upload/career/' . $name_gen;
 
         Slider::create([
             'title' => $request->title,
             'sub_title' => $request->sub_title,
-            'desc' => $request->desc,
             'slider_type' => static::SLIDER_TYPE,
             'image' => $save_url,
         ]);
@@ -87,7 +87,6 @@ class CareerSliderController extends Controller
             Slider::findOrFail($id)->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
-                'desc' => $request->desc,
             ]);
 
             $notification = array(
@@ -102,9 +101,13 @@ class CareerSliderController extends Controller
 
     public function destroy(Slider $slider,$id)
     {
-        $message = __( 'Slider deleted successfully' );
-        $slider->where('id',$id)->delete();
+        $slider = Slider::findOrFail($id);
+        $image = Str::after($slider->image, 'upload/career/');
+        $image = public_path('upload/career/' . $image);
+        unlink($image);
+        $slider->delete();
 
+        $message = __( 'Slider deleted successfully' );
         return $this->response(true, 200, $message );
     }
 
@@ -129,5 +132,5 @@ class CareerSliderController extends Controller
 
         return redirect()->back()->with($notification);
     }
-    
+
 }

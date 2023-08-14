@@ -36,9 +36,9 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->desc}}</td>
-                                <td>
+                                <td width="18%">
                                     <a href="{{route('service-home.edit', $item->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('service-home.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:void(0);" onclick="deleteService( '{{route('service-home.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -57,9 +57,9 @@
 
 @push('script')
     <script type="text/javascript">
-        function deleteSlider($routeName,$reload){
+        function deleteService($routeName,$reload){
 
-            if(!confirm("Do you want to delete this Slider?")){ return false; }
+            if(!confirm("Do you want to delete this Service?")){ return false; }
 
             if($reload == undefined){ $reload = 3000; }
             addLoading();
@@ -75,8 +75,8 @@
                     if(isJSON(response)){
                         $data = response;
                         if($data.status == true){
+                            location.reload();
                             toastr.success($data.message, 'Success !', {"closeButton": true});
-                            $('#table_id').ajax.reload();
                         }else{
                             toastr.error($data.message, 'Error !', {"closeButton": true});
                         }

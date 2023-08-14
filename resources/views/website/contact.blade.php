@@ -48,6 +48,7 @@
         </div>
         <!-- END REVOLUTION SLIDER -->
     </div>
+
     <div class="contact-modern pb--120 pb_md--80 pb_sm--80">
         <div class="container">
             <div class="row align-items-end">
@@ -79,30 +80,40 @@
                         </div>
                     </div>
                 </div>
+
+                @if(Session::has('message'))
+                    <div class="alert alert-success">
+                        {{Session('message')}}
+                    </div>
+                @endif
+
                 <div class="col-lg-6 col-12 pl--50">
                     <div class="contact-form">
-                        <form action="{{route('sendmail')}}" method="POST">
+                        <form name="contactForm" action="{{route('sendmail')}}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input name="name" type="text" placeholder="Name *">
+                                    <input name="name" id="name" type="text" placeholder="Name *">
+                                    @error('name') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <input name="email" type="text" placeholder="Email *">
+                                    <input name="email" id="email" type="email" placeholder="Email *">
+                                    @error('email')<div class="alert alert-danger">{{ $message }}</div>@enderror
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <input type="text" name="phone" placeholder="Phone number">
+                                    <input type="text" id="phone" name="phone" placeholder="Phone number">
+                                    @error('phone') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="col-lg-12 mt--30">
-                                    <textarea name="message" placeholder="Your message"></textarea>
+                                    <textarea name="message" id="message" placeholder="Your message"></textarea>
                                 </div>
 
 
                                 <div class="col-lg-12 mt--30">
-                                    <button type="submit" class="btn btn-primary">Send message</button>
+                                    <button type="submit" value="submit form" class="btn btn-primary">Send message</button>
                                 </div>
                             </div>
                         </form>

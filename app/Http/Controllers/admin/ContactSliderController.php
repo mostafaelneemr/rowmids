@@ -7,6 +7,7 @@ use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ContactSliderController extends Controller
@@ -100,9 +101,13 @@ class ContactSliderController extends Controller
 
     public function destroy(Slider $slider,$id)
     {
-        $message = __( 'Slider deleted successfully' );
-        $slider->where('id',$id)->delete();
+        $slider = Slider::findOrFail($id);
+        $image = Str::after($slider->image, 'upload/contact/');
+        $image = public_path('upload/contact/' . $image);
+        unlink($image);
+        $slider->delete();
 
+        $message = __( 'Slider deleted successfully' );
         return $this->response(true, 200, $message );
     }
 }

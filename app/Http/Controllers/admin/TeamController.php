@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class TeamController extends Controller
@@ -100,7 +101,14 @@ class TeamController extends Controller
 
     public function destroy($id)
     {
-        //
+        $team = Team::findOrFail($id);
+        $image = Str::after($team->image, 'upload/about/');
+        $image = public_path('upload/about/' . $image);
+        unlink($image);
+        $team->delete();
+
+        $message = __( 'Team deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
     public function InactiveSlider($id)

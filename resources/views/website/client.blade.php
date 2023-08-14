@@ -10,7 +10,7 @@
             <ul>
                 <!-- SLIDE  -->
                 @foreach ($sliders as $slider)
-                    
+
                 <li data-index="01" data-transition="curtain-1,curtain-3,curtain-2" data-slotamount="default,default,default,default"
                     data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on" data-easein="default,default,default,default"
                     data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row mt--60 mt_md--50 mt_sm--30">
                         <div class="col-lg-12">
                             <div class="brand-wrapper">

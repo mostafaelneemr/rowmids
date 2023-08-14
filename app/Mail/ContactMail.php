@@ -26,6 +26,7 @@ class ContactMail extends Mailable
 
     public function build()
     {
+//        return $this->view('admin.contact.mail.index  ');
         return $this->from($this->details['email'])
             ->to('mostafa.elnemr50@gmail.com')
             ->view('emails.contact')

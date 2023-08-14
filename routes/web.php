@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\PortfolioSliderController;
 use App\Http\Controllers\admin\ServiceDecorationController;
+use App\Http\Controllers\admin\ServiceDigitController;
 use App\Http\Controllers\admin\ServiceSliderController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TeamController;
@@ -38,7 +39,7 @@ use App\Http\Controllers\SendEmailController;
 
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->group(function () {
-    
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -65,6 +66,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         Route::resource('/service-home', ServiceDecorationController::class);
         Route::resource('/architecture-picture', ArchitecturePictureController::class);
         Route::resource('/architecture', ArchitectureController::class);
+
+        Route::resource('/digitals', ServiceDigitController::class);
+        Route::get('service/inactive/{id}', [CareerController::class, 'inActiveDigital'])->name('inactive.digital');
+        Route::get('service/active{id}', [CareerController::class, 'ActiveDigital'])->name('active.digital');
+
     });
 
     Route::group(['prefix' => '/client'], function() {
@@ -89,7 +95,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         Route::resource('career-position', CareerController::class);
         Route::get('brand/inactive/{id}', [CareerController::class, 'InactiveCareer'])->name('inactive.career');
         Route::get('brand/active{id}', [CareerController::class, 'ActiveCareer'])->name('active.career');
-        
+
     });
 
     Route::group(['prefix' => '/contact'], function() {
@@ -102,7 +108,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');
     Route::get('/slider/active{id}', [HomeSliderController::class, 'ActiveSlider'])->name('active.slider');
 
-    
+
     Route::get('/setting', [SettingController::class,'index'])->name('setting.index');
     Route::patch('/setting', [SettingController::class,'update'])->name('setting.update');
 

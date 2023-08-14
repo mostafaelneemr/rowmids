@@ -75,34 +75,34 @@ function whereBetween(&$eloquent, $columnName, $form, $to)
 }
 
 
-function notifyStaffCases(array $to, $title, $description, $url)
-{
-    $data = [
-        'title' => $title,
-        'description' => $description,
-        'url' => $url
-    ];
+// function notifyStaffCases(array $to, $title, $description, $url)
+// {
+//     $data = [
+//         'title' => $title,
+//         'description' => $description,
+//         'url' => $url
+//     ];
 
-    switch ($to['type']) {
-        case 'staff':
-            $staff = User::all();
-            if ($staff->isNotEmpty()) {
-                foreach ($staff as $key => $value) {
-                    $value->notify( new General( $data ) );
-                }
-            }
-            break;
+//     switch ($to['type']) {
+//         case 'staff':
+//             $staff = User::all();
+//             if ($staff->isNotEmpty()) {
+//                 foreach ($staff as $key => $value) {
+//                     $value->notify( new General( $data ) );
+//                 }
+//             }
+//             break;
 
-    //        case 'group':
-    //            $staff = Staff::whereIn('permission_group_id', $to['ids'])->get();
-    //            if ($staff->isNotEmpty()) {
-    //                foreach ($staff as $key => $value) {
-    //                    $value->notify(new \App\Notifications\General($data));
-    //                }
-    //            }
-            break;
+//     //        case 'group':
+//     //            $staff = Staff::whereIn('permission_group_id', $to['ids'])->get();
+//     //            if ($staff->isNotEmpty()) {
+//     //                foreach ($staff as $key => $value) {
+//     //                    $value->notify(new \App\Notifications\General($data));
+//     //                }
+//     //            }
+//             break;
 
-    }
+//     }
 
-    return true;
-}
+//     return true;
+// }

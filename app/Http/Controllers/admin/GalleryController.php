@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class GalleryController extends Controller
@@ -28,12 +29,12 @@ class GalleryController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(480, 480)->save('upload/portfolio/' . $name_gen);
             $save_url = 'upload/portfolio/' . $name_gen;
-    
+
             Gallery::create([
                 'image' => $save_url,
                 'title' => $request->title,
             ]);
-    
+
             $notification = array(
                 'message' => 'Picture Inserted Successfully',
                 'alert-type' => 'success',
@@ -88,6 +89,13 @@ class GalleryController extends Controller
 
     public function destroy($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        $image = Str::after($gallery->image, 'upload/portfolio/');
+        $image = public_path('upload/portfolio/' . $image);
+        unlink($image);
+        $gallery->delete();
+
+        $message = __( 'Picture deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 }

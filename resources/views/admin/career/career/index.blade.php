@@ -38,7 +38,7 @@
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->desc}}</td>
                                 <td class={{$item->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$item->is_publish == 'active' ? 'published' : 'draft'}}</td>
-                                <td>
+                                <td width="18%">
                                     <a href="{{route('career-position.edit', $item->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                     <a href="javascript:void(0);" onclick="deleteSlider( '{{route('career-position.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     @if($item->is_publish == 'active')

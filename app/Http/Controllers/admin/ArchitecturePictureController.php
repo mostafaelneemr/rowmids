@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\ArchitecturePicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ArchitecturePictureController extends Controller
@@ -28,9 +29,9 @@ class ArchitecturePictureController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1920, 650)->save('upload/service/' . $name_gen);
             $save_url = 'upload/service/' . $name_gen;
-    
+
             ArchitecturePicture::create([ 'image' => $save_url, ]);
-    
+
             $notification = array(
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
@@ -60,7 +61,14 @@ class ArchitecturePictureController extends Controller
 
     public function destroy($id)
     {
-        //
+        $team = ArchitecturePicture::findOrFail($id);
+        $image = Str::after($team->image, 'upload/service/');
+        $image = public_path('upload/service/' . $image);
+        unlink($image);
+        $team->delete();
+
+        $message = __( 'Picture deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class BrandController extends Controller
@@ -29,12 +30,12 @@ class BrandController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(96, 37)->save('upload/client/' . $name_gen);
             $save_url = 'upload/client/' . $name_gen;
-    
+
             Brand::create([
                 'image' => $save_url,
                 'name' => $request->name,
             ]);
-    
+
             $notification = array(
                 'message' => 'Brand Inserted Successfully',
                 'alert-type' => 'success',
@@ -89,7 +90,14 @@ class BrandController extends Controller
 
     public function destroy($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        $image = Str::after($brand->image, 'upload/client/');
+        $image = public_path('upload/client/' . $image);
+        unlink($image);
+        $brand->delete();
+
+        $message = __( 'Brand deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
     public function InactiveBrand($id)

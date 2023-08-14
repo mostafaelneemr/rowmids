@@ -7,6 +7,7 @@ use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class AboutSliderController extends Controller
@@ -97,21 +98,13 @@ class AboutSliderController extends Controller
 
     public function destroy($id)
     {
-        if(Slider::find($id)->delete()){
+        $slider = Slider::findOrFail($id);
+        $image = Str::after($slider->image, 'upload/about/');
+        $image = public_path('upload/about/' . $image);
+        unlink($image);
+        $slider->delete();
 
-            $response = [
-                "status" => true,
-                "message" => "Slider deleted successfully."
-            ];   
-        }else{
-            
-        $response = [
-            "status" => false,
-            "message" => "Slider Can\'t deleted successfully."
-        ];
-        
-        }
-  
-        return response()->json($response);
+        $message = __( 'Slider deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 }

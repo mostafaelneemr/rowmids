@@ -42,7 +42,7 @@
                                 <td>{{$slider->title}}</td>
                                 <td>{{$slider->sub_title}}</td>
                                 <td class={{$slider->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$slider->is_publish == 'active' ? 'published' : 'draft'}}</td>
-                                <td>
+                                <td width="18%">
                                     <a href="{{route('client-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                     <a href="javascript:void(0);" onclick="deleteSlider( '{{route('client-slider.destroy', $slider->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     @if($slider->is_publish == 'active')
@@ -86,8 +86,8 @@
                     if(isJSON(response)){
                         $data = response;
                         if($data.status == true){
+                            location.reload();
                             toastr.success($data.message, 'Success !', {"closeButton": true});
-                            $('#table_id').ajax.reload();
                         }else{
                             toastr.error($data.message, 'Error !', {"closeButton": true});
                         }

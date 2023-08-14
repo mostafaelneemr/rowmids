@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class TestimonialController extends Controller
@@ -96,7 +97,14 @@ class TestimonialController extends Controller
 
     public function destroy($id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+        $image = Str::after($testimonial->image, 'upload/about/');
+        $image = public_path('upload/about/' . $image);
+        unlink($image);
+        $testimonial->delete();
+
+        $message = __( 'Team deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
     public function inActiveTestimonial($id)

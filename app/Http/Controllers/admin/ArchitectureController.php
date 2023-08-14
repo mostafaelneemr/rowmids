@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Architecture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ArchitectureController extends Controller
@@ -95,7 +96,14 @@ class ArchitectureController extends Controller
 
     public function destroy($id)
     {
-        //
+        $architecture = Architecture::findOrFail($id);
+        $image = Str::after($architecture->icon, 'upload/service/');
+        $image = public_path('upload/service/' . $image);
+        unlink($image);
+        $architecture->delete();
+
+        $message = __( 'Architecture deleted successfully' );
+        return $this->response(true, 200, $message );
     }
 
 }

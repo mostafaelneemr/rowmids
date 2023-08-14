@@ -7,6 +7,7 @@ use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class HomeSliderController extends Controller
@@ -95,12 +96,15 @@ class HomeSliderController extends Controller
         }
     }
 
-    public function destroy(Slider $slider,$id)
+    public function destroy($id)
     {
-        return "done";
-        $message = __( 'Slider deleted successfully' );
-        $slider->where('id',$id)->delete();
+        $slider = Slider::findOrFail($id);
+        $image = Str::after($slider->image, 'upload/home/');
+        $image = public_path('upload/home/' . $image);
+        unlink($image);
+        $slider->delete();
 
+        $message = __( 'Slider deleted successfully' );
         return $this->response(true, 200, $message );
     }
 

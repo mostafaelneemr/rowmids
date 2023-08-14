@@ -45,6 +45,7 @@
            <ul id="service" class="collapse" data-parent="#sidebarnav">
               <li><a href="{{route('service-slider.index')}}">Slider</a></li>
               <li><a href="{{route('service-home.index')}}">Home Service</a></li>
+              <li><a href="{{route('digitals.index')}}">Digital Service</a></li>
               <li><a href="{{route('architecture.index')}}">Architecture service </a></li>
 
             </ul>
@@ -80,7 +81,7 @@
             <ul id="career" class="collapse" data-parent="#sidebarnav">
              <li><a href="{{route('career-slider.index')}}">Slider</a></li>
              <li><a href="{{route('career-position.index')}}">Career position</a></li>
- 
+
              </ul>
            </li>
 

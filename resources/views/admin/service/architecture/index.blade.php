@@ -20,8 +20,7 @@
                 @endphp
 
                 <div class="card-body ">
-                    <div class="table-responsive">
-                        <table id="datatable" class="table table-striped table-bordered p-0 text-center table-hover">
+                        <table class="table table-striped table-bordered p-0 text-center table-hover">
                             <thead>
                             <tr>
                                 <th>Image</th>
@@ -34,13 +33,12 @@
                                 <tr>
                                     <td><img src="{{asset($item->image)}}" style="width: 200px; height: 100px" alt=""></td>
                                     <td>
-                                        <a href="javascript:void(0);" onclick="deleteSlider( '{{route('testimonials.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                        <a href="javascript:void(0);" onclick="deletePicture( '{{route('architecture-picture.destroy', $item->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
                 </div>
             </div>
         </div>
@@ -56,7 +54,7 @@
                     <div class="card-body">
                         <form class="form" action="{{route('architecture-picture.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-    
+
                             <div class="form-group">
                                 <label>Image</label>
                                 <label id="projectinput7" class="file center-block">
@@ -111,12 +109,12 @@
                                 <td class={{$architecture->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$architecture->is_publish == 'active' ? 'published' : 'draft'}}</td>
                                 <td>
                                     <a href="{{route('architecture.edit', $architecture->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="javascript:void(0);" onclick="deleteSlider( '{{route('architecture.destroy', $architecture->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
-                                    @if($architecture->is_publish == 'active')
-                                        <a href="{{ route('inactive.slider', $architecture->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
-                                    @else
-                                        <a href="{{ route('active.slider', $architecture->id) }}" class="btn btn-sm btn-success" title="Active Now"><i class="fa fa-arrow-up"></i></a>
-                                    @endif
+                                    <a href="javascript:void(0);" onclick="deleteArchitecture( '{{route('architecture.destroy', $architecture->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+{{--                                    @if($architecture->is_publish == 'active')--}}
+{{--                                        <a href="{{ route('inactive.', $architecture->id) }}" class="btn btn-sm btn-danger" title="InActive Now"><i class="fa fa-arrow-down"></i></a>--}}
+{{--                                    @else--}}
+{{--                                        <a href="{{ route('active.', $architecture->id) }}" class="btn btn-sm btn-success" title="Active Now"><i class="fa fa-arrow-up"></i></a>--}}
+{{--                                    @endif--}}
                                 </td>
                             </tr>
                         @endforeach
@@ -135,9 +133,9 @@
 
 @push('script')
     <script type="text/javascript">
-        function deleteSlider($routeName,$reload){
+        function deletePicture($routeName,$reload){
 
-            if(!confirm("Do you want to delete this Slider?")){ return false; }
+            if(!confirm("Do you want to delete this Picture?")){ return false; }
 
             if($reload == undefined){ $reload = 3000; }
             addLoading();
@@ -153,8 +151,38 @@
                     if(isJSON(response)){
                         $data = response;
                         if($data.status == true){
+                            location.reload();
                             toastr.success($data.message, 'Success !', {"closeButton": true});
-                            $('#table_id').ajax.reload();
+                        }else{
+                            toastr.error($data.message, 'Error !', {"closeButton": true});
+                        }
+                    }
+                }
+            )
+        }
+    </script>
+
+    <script type="text/javascript">
+        function deleteArchitecture($routeName,$reload){
+
+            if(!confirm("Do you want to delete this architecture?")){ return false; }
+
+            if($reload == undefined){ $reload = 3000; }
+            addLoading();
+
+            $.post(
+                $routeName,
+                {
+                    '_method':'DELETE',
+                    '_token':$('meta[name="csrf-token"]').attr('content'),
+                },
+                function(response){
+                    removeLoading();
+                    if(isJSON(response)){
+                        $data = response;
+                        if($data.status == true){
+                            location.reload();
+                            toastr.success($data.message, 'Success !', {"closeButton": true});
                         }else{
                             toastr.error($data.message, 'Error !', {"closeButton": true});
                         }

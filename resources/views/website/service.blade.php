@@ -30,7 +30,7 @@
             <ul>
                 <!-- SLIDE  -->
                 @foreach ($sliders as $slider)
-                    
+
                 <li data-index="01" data-transition="curtain-1,curtain-3,curtain-2" data-slotamount="default,default,default,default"
                     data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on" data-easein="default,default,default,default"
                     data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"
@@ -84,7 +84,7 @@
                     <div class="basic-thine-line"></div>
 
                     <!-- Accordion Area -->
-                    @foreach($decores as $decore) 
+                    @foreach($decores as $decore)
                     <div class="bk-accordion-style--2 mt--55 wow move-up" id="accordionExampl3">
 
                         <div class="card">
@@ -94,12 +94,12 @@
                                     aria-expanded="false" aria-controls="collapsesix"> {{ $decore->title }} </a>
                                 </h5>
                             </div>
-                            
+
                             <div id="collapsesix{{ $decore->id }}" class="collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExampl3">
                                 <div class="card-body">{{ $decore->desc }}</div>
                             </div>
                         </div>
-                        
+
                     </div>
                     @endforeach
                 </div>
@@ -107,6 +107,53 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Service Area Start -->
+<div class="service-area bg_color--5 ptb--150 ptb-md--80 ptb-sm--60">
+    <div class="container">
+        <div class="row align-content-center">
+            <div class="col-lg-6 col-12">
+                <div class="bk-title--default text-start">
+                    <h5 class="heading-13 theme-color text-uppercase fw-500">Services</h5>
+                    <div class="bkseparator--30"></div>
+                    <h3 class="heading-40 fw-200">{{ setting('digital_title') }}</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 mt_md--30 mt_sm--30">
+                <div class="modern-service-content wow move-up">
+                    <p>{{ setting('digital_description') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt--100 mt_md--50 mt_sm--30">
+
+            @foreach($digitals as $digital)
+            <!-- Single SVG Icon Box Start -->
+            <div class="col-xl-4 col-lg-6 col-md-6 mb_lg--30 mb_md--30 mb_sm--30">
+                <div class="single-svg-icon-box">
+                    <div class="grid-overlay" style="background-image: url('{{ $digital->image }}')"></div>
+                    <div class="inner">
+                        <div class="svg-icon" id="svg-icon-1" data-svg-icon="{{ $digital->icon }}"></div>
+                        <div class="content">
+                            <h5 class="heading heading-h5"> {{ $digital->title }}</h5>
+                            <p>{{ $digital->desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single SVG Icon Box End -->
+            @endforeach
+
+
+        </div>
+    </div>
+</div>
+<!-- Service Area End -->
+
+
+
 
 <!-- Start Service Area -->
 <div class="brook-service-area architecture-service-container">
@@ -120,7 +167,7 @@
                 <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')"></div>
             </div>
             <!-- End Single Image -->
-            
+
         </div>
     </div>
     @endforeach
@@ -129,7 +176,7 @@
     <div class="row">
         <!-- Start Single Service -->
         @foreach ($architectures as $architecture)
-            
+
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
                 <div class="architecture-inner">
@@ -140,7 +187,7 @@
                         <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
                         <div class="bkseparator--20"></div>
                         <p class="bk_pra">{{ $architecture->desc }}</p>
-                           
+
                         </div>
                     </div>
                 </div>
