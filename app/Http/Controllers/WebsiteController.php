@@ -8,24 +8,27 @@ use App\Models\admin\ArchitecturePicture;
 use App\Models\admin\Brand;
 use App\Models\admin\Career;
 use App\Models\admin\Gallery;
+use App\Models\admin\Service;
 use App\Models\admin\ServiceDecoration;
 use App\Models\admin\ServiceDigital;
 use App\Models\admin\Slider;
 use App\Models\admin\Team;
 use App\Models\admin\Testimonial;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+
 
 class WebsiteController extends Controller
 {
     public function home()
     {
         $sliders = Slider::where('slider_type', 'home')->where('is_publish', 'active')->get();
-        $teams = Team::where('is_publish', 'active')->paginate(3);
+        // $teams = Team::where('is_publish', 'active')->paginate(3);
         $testimonials = Testimonial::where('is_publish', 'active')->paginate(4);
         $galleries = Gallery::paginate(3);
-        $brands = Brand::where('is_publish', 'active')->paginate(4);
-        return view('website.index', compact('sliders', 'testimonials', 'teams', 'galleries', 'brands'));
+        $digitals = ServiceDigital::where('is_publish', 'active')->get();
+        $pictures = ArchitecturePicture::get();
+        $architectures = Architecture::get();
+        // $brands = Brand::where('is_publish', 'active')->paginate(4);
+        return view('website.index', compact('sliders', 'digitals','testimonials', 'galleries', 'pictures', 'architectures'));
     }
 
     public function about()
@@ -36,7 +39,8 @@ class WebsiteController extends Controller
         $sliders = Slider::where('slider_type', 'about')->where('is_publish', 'active')->get();
         $testimonials = Testimonial::where('is_publish', 'active')->get();
         $teams = Team::where('is_publish', 'active')->get();
-        return view('website.about', compact('sliders', 'teams', 'testimonials'));
+        $digitals = ServiceDigital::where('is_publish', 'active')->get();
+        return view('website.about', compact('sliders', 'digitals','teams', 'testimonials'));
     }
 
     public function service()
@@ -48,8 +52,8 @@ class WebsiteController extends Controller
         $decores = ServiceDecoration::get();
         $pictures = ArchitecturePicture::get();
         $architectures = Architecture::get();
-        $digitals = ServiceDigital::get();
-        return view('website.service', compact('sliders', 'decores', 'pictures', 'architectures', 'digitals'));
+        $services = Service::where('is_publish', 'active')->get();
+        return view('website.service', compact('sliders', 'decores', 'pictures', 'architectures', 'services'));
     }
 
     public function client()

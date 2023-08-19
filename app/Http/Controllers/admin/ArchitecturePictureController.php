@@ -27,7 +27,7 @@ class ArchitecturePictureController extends Controller
         try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1920, 650)->save('upload/service/' . $name_gen);
+            Image::make($image)->resize(1920, 700)->save('upload/service/' . $name_gen);
             $save_url = 'upload/service/' . $name_gen;
 
             ArchitecturePicture::create([ 'image' => $save_url, ]);

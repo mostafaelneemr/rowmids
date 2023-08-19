@@ -27,12 +27,25 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
-                    <div class="footer-widget text-var--2 menu--about">
+                    <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
+                        <h2 class="widgettitle">Home</h2>
+                        <div class="footer-menu">
+                            <ul class="ft-menu-list bk-hover">
+                                <li><a href="{{ route('about') }}">about_us</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="{{ route('service') }}">service</a></li>
+                                <li><a href="{{ route('contact') }}">contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
+                    <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
                         <h2 class="widgettitle">About us</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
                                 <li><a href="{{ route('about') }}">about_us</a></li>
-                                <li><a href="team.html">Team</a></li>
                                 <li><a href="#">Career</a></li>
                                 <li><a href="{{ route('service') }}">service</a></li>
                                 <li><a href="{{ route('contact') }}">contact</a></li>
@@ -48,7 +61,7 @@
                             <div class="bk-hover">
                                 <p>{{ setting('address') }}</p>
                                 <p><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
-                                <p><a href="#">{{ setting('phone') }}</a></p>
+                                <p><a href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a></p>
                             </div>
                             <div class="social-share social--transparent text-white">
                                 <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>

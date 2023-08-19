@@ -31,6 +31,7 @@
             </a>
             <ul id="about" class="collapse" data-parent="#sidebarnav">
               <li> <a href="{{route('about-slider.index')}}">Slider</a></li>
+              <li><a href="{{route('digitals.index')}}">About Section</a></li>
               <li> <a href="{{route('teams.index')}}">Teams</a></li>
               <li> <a href="{{route('testimonials.index')}}">Testimonials</a></li>
 
@@ -44,8 +45,7 @@
            </a>
            <ul id="service" class="collapse" data-parent="#sidebarnav">
               <li><a href="{{route('service-slider.index')}}">Slider</a></li>
-              <li><a href="{{route('service-home.index')}}">Home Service</a></li>
-              <li><a href="{{route('digitals.index')}}">Digital Service</a></li>
+              <li><a href="{{route('services.index')}}">Home Service</a></li>
               <li><a href="{{route('architecture.index')}}">Architecture service </a></li>
 
             </ul>

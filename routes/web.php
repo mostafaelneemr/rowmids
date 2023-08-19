@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ContactSliderController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\PortfolioSliderController;
+use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\ServiceDecorationController;
 use App\Http\Controllers\admin\ServiceDigitController;
 use App\Http\Controllers\admin\ServiceSliderController;
@@ -51,26 +52,31 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
     Route::group(['prefix' => 'about'], function() {
         Route::resource('about-slider', AboutSliderController::class);
 
+        Route::resource('/digitals', ServiceDigitController::class);
+        Route::get('service/inactive/{id}', [ServiceDigitController::class, 'inActiveDigital'])->name('inactive.digital');
+        Route::get('service/active{id}', [ServiceDigitController::class, 'ActiveDigital'])->name('active.digital');
+
+
         Route::resource('/testimonials', TestimonialController::class);
         Route::get('/testimonial/inactive/{id}', [TestimonialController::class, 'inActiveTestimonial'])->name('inactive.testimonial');
         Route::get('/testimonial/active{id}', [TestimonialController::class, 'ActiveTestimonial'])->name('active.testimonial');
 
         Route::resource('/teams', TeamController::class);
         Route::get('/teams/inactive/{id}', [TeamController::class, 'InactiveTeam'])->name('inactive.team');
-        Route::get('/teams/active{id}', [TeamController::class, 'ActiveTeam'])->name('active.team');
+        Route::get('/teams/active/{id}', [TeamController::class, 'ActiveTeam'])->name('active.team');
 
     });
 
     Route::group(['prefix' => '/service'], function() {
+
+        Route::resource('/services', ServiceController::class);
+        Route::get('/services/inactive/{id}', [ServiceController::class, 'InactiveService'])->name('inactive.service');
+        Route::get('/services/active/{id}', [ServiceController::class, 'ActiveService'])->name('active.service');
+
         Route::resource('/service-slider', ServiceSliderController::class);
         Route::resource('/service-home', ServiceDecorationController::class);
         Route::resource('/architecture-picture', ArchitecturePictureController::class);
         Route::resource('/architecture', ArchitectureController::class);
-
-        Route::resource('/digitals', ServiceDigitController::class);
-        Route::get('service/inactive/{id}', [CareerController::class, 'inActiveDigital'])->name('inactive.digital');
-        Route::get('service/active{id}', [CareerController::class, 'ActiveDigital'])->name('active.digital');
-
     });
 
     Route::group(['prefix' => '/client'], function() {

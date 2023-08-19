@@ -58,7 +58,7 @@
                                 <div class="form-group col-md-6">
                                     <label>requirements</label>
                                     <textarea name="req" class="form-control" id="req" rows="5">{!! $careers->req !!}</textarea>
-                                    @error('description') <div class="alert alert-danger">{{ $message }}</div> @enderror
+                                    @error('req') <div class="alert alert-danger">{{ $message }}</div> @enderror
                                 </div>
 
                             </div>

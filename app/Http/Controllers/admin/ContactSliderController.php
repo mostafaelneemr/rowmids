@@ -35,7 +35,7 @@ class ContactSliderController extends Controller
        try{
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(1920, 1000)->save('upload/contact/' . $name_gen);
+        Image::make($image)->resize(1920, 700)->save('upload/contact/' . $name_gen);
         $save_url = 'upload/contact/' . $name_gen;
 
         Slider::create([

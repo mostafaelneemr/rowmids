@@ -63,7 +63,7 @@
     <!-- END REVOLUTION SLIDER -->
 </div>
 
-<div class="home-decoration-area bg_color--1 mt-3 mb-3">
+{{-- <div class="home-decoration-area bg_color--1 mt-3 mb-3">
     <div class="container-fluid">
         <div class="row align-items-center no-gutters">
             <div class="col-lg-6">
@@ -106,58 +106,32 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
+<!-- Start Service List -->
+<div class="brook-service-list-area">
 
-<!-- Service Area Start -->
-<div class="service-area bg_color--5 ptb--150 ptb-md--80 ptb-sm--60">
-    <div class="container">
-        <div class="row align-content-center">
-            <div class="col-lg-6 col-12">
-                <div class="bk-title--default text-start">
-                    <h5 class="heading-13 theme-color text-uppercase fw-500">Services</h5>
-                    <div class="bkseparator--30"></div>
-                    <h3 class="heading-40 fw-200">{{ setting('digital_title') }}</h3>
-                </div>
-            </div>
-            <div class="col-lg-6 col-12 mt_md--30 mt_sm--30">
-                <div class="modern-service-content wow move-up">
-                    <p>{{ setting('digital_description') }}</p>
-                </div>
-            </div>
+    <!-- Start Single Service -->
+    @foreach ($services as $service)
+        
+    <div class="bk-service-list d-block d-md-flex mb--40 align-items-center wow move-up">
+        <div class="thumb">
+            <img class="w--100" src="{{ $service->image }}" alt="service list">
         </div>
-        <div class="row mt--100 mt_md--50 mt_sm--30">
-
-            @foreach($digitals as $digital)
-            <!-- Single SVG Icon Box Start -->
-            <div class="col-xl-4 col-lg-6 col-md-6 mb_lg--30 mb_md--30 mb_sm--30">
-                <div class="single-svg-icon-box">
-                    <div class="grid-overlay" style="background-image: url('{{ $digital->image }}')"></div>
-                    <div class="inner">
-                        <div class="svg-icon" id="svg-icon-1" data-svg-icon="{{ $digital->icon }}"></div>
-                        <div class="content">
-                            <h5 class="heading heading-h5"> {{ $digital->title }}</h5>
-                            <p>{{ $digital->desc }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single SVG Icon Box End -->
-            @endforeach
-
-
+        <div class="content plr--130 plr_md--50 plr_sm--40">
+            <h3 class="heading heading-h3">{{ $service->title }}</h3>
+            <div class="bkseparator--35"></div>
+            <p class="bk_pra">{!! $service->desc !!} </p>
         </div>
     </div>
+    @endforeach
+    <!-- End Single Service -->
+
 </div>
-<!-- Service Area End -->
+<!-- End Service List -->
 
-
-
-
-<!-- Start Service Area -->
 <div class="brook-service-area architecture-service-container">
-
     <!-- Start Bg Thumbnail -->
     @foreach ($pictures as $picture)
     <div class="architecture-bg-thumbnail">
@@ -167,7 +141,6 @@
                 <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')"></div>
             </div>
             <!-- End Single Image -->
-
         </div>
     </div>
     @endforeach
@@ -176,7 +149,6 @@
     <div class="row">
         <!-- Start Single Service -->
         @foreach ($architectures as $architecture)
-
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
                 <div class="architecture-inner">
@@ -185,19 +157,14 @@
                     </div>
                     <div class="content">
                         <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
-                        <div class="bkseparator--20"></div>
-                        <p class="bk_pra">{{ $architecture->desc }}</p>
-
-                        </div>
+                        <div class="bkseparator--20"></div> <p class="bk_pra">{{ $architecture->desc }}</p> </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+        @endforeach
         <!-- End Single Service -->
-
     </div>
 </div>
-<!-- End Service Area -->
 
     @include('website.call')
 

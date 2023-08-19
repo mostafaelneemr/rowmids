@@ -111,7 +111,7 @@ class TeamController extends Controller
         return $this->response(true, 200, $message );
     }
 
-    public function InactiveSlider($id)
+    public function InactiveTeam($id)
     {
         Team::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
@@ -122,7 +122,7 @@ class TeamController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function ActiveSlider($id)
+    public function ActiveTeam($id)
     {
         Team::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(
