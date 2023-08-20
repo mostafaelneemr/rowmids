@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright-right text-md-end text-center">
-                        <p>© 2019 Brook. <a href="https://hasthemes.com/">All Rights Reserved.</a></p>
+                        <p>{{ setting('copyright') }}</a></p>
                     </div>
                 </div>
             </div>

@@ -95,8 +95,9 @@
 
                 <div class="col-lg-4 col-md-6 login-fancy-bg bg" style="background-image: url({{asset('backend/asset/images/login-inner-bg.jpg')}});">
                     <div class="login-fancy">
-                        <h2 class="text-white mb-20">Hello world!</h2>
-                        <p class="mb-20 text-white">Create tailor-cut websites with the exclusive multi-purpose responsive template along with powerful features.</p>
+                        <h2 class="text-white mb-20">ROminds!</h2>
+                        <p class="mb-20 text-white">ROMINDS is home to creative thinkers, explorers, and innovators who love to "put the box outside". We challenge the status quo, and help leading brands find needle in the haystack. 
+                            Expect us to work as an extension of your team that adds value to your business with each deliverable across touchpoints. Let's join forces to make the impossible - the new possibility!</p>
                         <ul class="list-unstyled  pos-bot pb-30">
 {{--                            <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>--}}
 {{--                            <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>--}}

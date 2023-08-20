@@ -21,6 +21,10 @@
             </a>
             <ul id="home" class="collapse" data-parent="#sidebarnav">
                <li> <a href="{{route('home-slider.index')}}">Slider</a></li>
+               <li><a href="{{route('digitals.index')}}">About Section</a></li>
+               <li><a href="{{route('gallery.index')}}">Gallery</a></li>
+               <li> <a href="{{route('testimonials.index')}}">Testimonials</a></li>
+               <li><a href="{{route('architecture.index')}}">Architecture service </a></li>
             </ul>
           </li>
 
