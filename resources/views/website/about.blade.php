@@ -57,7 +57,7 @@
         <div class="row align-content-center">
             <div class="col-lg-6 col-12">
                 <div class="bk-title--default text-start">
-                    <h5 class="heading-13 theme-color text-uppercase fw-500">{{ setting('title') }}</h5>
+                    <h3 class="heading-13 theme-color text-uppercase fw-500">{{ setting('title') }}</h3>
                     <div class="bkseparator--30"></div>
                     <h3 class="heading-40 fw-200">{{ setting('digital_title') }}</h3>
                 </div>
