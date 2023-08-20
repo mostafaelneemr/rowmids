@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+
 
 class ServiceDigitController extends Controller
 {
@@ -24,24 +26,32 @@ class ServiceDigitController extends Controller
 
     public function store(Request $request)
     {
-        try{
+        // try{
+
+            // dd($request);
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(370, 370)->save('upload/service/' . $name_gen);
             $save_url = 'upload/service/' . $name_gen;
 
-            $icon = $request->file('icon');
-            $filename = 'svg_' . time() . '.' . $icon->getClientOriginalExtension();
-            $path = storage_path('app/public/images/');
-            $icon->move($path, $filename);
-//        Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
-//            $save_icon = 'upload/service/' . $name_gen;
+
+            if ($request->hasFile('icon')) {
+                $image = $request->file('icon');
+                $path = $image->store('icon', 'public'); // Store in 'public/images' directory
+            }
+
+            // $icon = $request->file('icon');
+            // $filename = 'svg_' . time() . '.' . $icon->getClientOriginalExtension();
+            // $path = storage_path('app/public/images/');
+            // $icon->move($path, $filename);
+            // Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
+            // $save_icon = 'upload/service/' . $name_gen;
 
             ServiceDigital::create([
                 'title' => $request->title,
                 'desc' => $request->desc,
                 'image' => $save_url,
-                'icon' => $icon,
+                'icon' => $path,
             ]);
 
             $notification = array(
@@ -49,9 +59,9 @@ class ServiceDigitController extends Controller
                 'alert-type' => 'success',
             );
             return redirect::route('digitals.index')->with($notification);
-        }catch (\Exception $e) {
-            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-        }
+        // }catch (\Exception $e) {
+        //     return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        // }
     }
 
     public function show($id)

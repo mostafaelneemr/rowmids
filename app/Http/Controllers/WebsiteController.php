@@ -24,7 +24,7 @@ class WebsiteController extends Controller
         // $teams = Team::where('is_publish', 'active')->paginate(3);
         $testimonials = Testimonial::where('is_publish', 'active')->paginate(4);
         $galleries = Gallery::paginate(3);
-        $digitals = ServiceDigital::where('is_publish', 'active')->get();
+        $digitals = ServiceDigital::where('is_publish', 'active')->paginate(3);
         $pictures = ArchitecturePicture::get();
         $architectures = Architecture::get();
         // $brands = Brand::where('is_publish', 'active')->paginate(4);

@@ -62,7 +62,7 @@
                 <div class="inner">
                     
                     <div class="title">
-                        <h3 class="heading heading-h3 text-color-2">{{ $career->title }}</h3>
+                        <h3 class="heading heading-h3" style="color: #f08833f2" >{{ $career->title }}</h3>
                     </div>
 
                     <div class="content mt--35">
