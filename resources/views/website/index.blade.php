@@ -362,7 +362,6 @@
                                             
                                     </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                         <!-- End Single Service -->
