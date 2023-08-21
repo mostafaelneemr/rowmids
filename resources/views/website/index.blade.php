@@ -362,11 +362,11 @@
                                             
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                            <!-- End Single Service -->
+                            
                         </div>
-                        <!-- End Single Service -->
-    
-                    </div>
+                        @endforeach
                 </div>
                 @endforeach
                 <!-- End Service Area -->
