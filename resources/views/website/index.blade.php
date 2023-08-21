@@ -323,7 +323,7 @@
         <div class="row align-content-center ">
             <div class="col-lg-6 col-12">
                 <div class="bk-title--default text-start">
-                    <h1 class="theme-color fw-500 py-2" style="font-weight: bold; color: #314550; font-size: 61px;">KEY SERVICE</h1>
+                    <h1 class="theme-color fw-500 py-2" style="font-weight: bold; color: #314550; font-size: 61px;">{{ setting('title_service') }}</h1>
                 </div>
             </div>
         </div>
