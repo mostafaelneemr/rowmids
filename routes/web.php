@@ -77,6 +77,8 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         Route::resource('/service-home', ServiceDecorationController::class);
         Route::resource('/architecture-picture', ArchitecturePictureController::class);
         Route::resource('/architecture', ArchitectureController::class);
+        Route::get('/architecture/inactive/{id}', [ArchitectureController::class, 'InactiveService'])->name('inactive.arc');
+        Route::get('/architecture/active/{id}', [ArchitectureController::class, 'ActiveService'])->name('active.arc');
     });
 
     Route::group(['prefix' => '/client'], function() {

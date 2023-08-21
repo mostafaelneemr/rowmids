@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer id="bk-footer" class="page-footer pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30 pl_sm--5 pr_sm--5" style="background-color: #fff;">
+<footer id="bk-footer" class="page-footer pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30  pl_sm--5 pr_sm--5" style="background-color: #fff;">
     <!-- Start Footer Top Area -->
-    <div class="bk-footer-inner pt--110 pb--20 pt_sm--80">
+    <div class="bk-footer-inner pt--80 pb--15 pt_sm--100">
         <div class="container">
             <div class="row">
 
@@ -12,7 +12,7 @@
 
                                 {{-- <img src="{{ img(setting('site_logo')) }}" alt=""> --}}
                                 @if(!empty($site_logo = \App\Models\admin\Setting::where('name','site_logo')->value('value')))
-				<img alt="Logo" src="{{ $site_logo}}" style="width: 100%;" />
+				<img alt="Logo" src="{{ $site_logo}}" />
 			@else
 				<img alt="Logo" src="{{ url('public/Logo-PNG_3.png')}}" style="width: 100%;" />
 			@endif
@@ -31,9 +31,9 @@
                         <h2 class="widgettitle" style="color: #314550">Home</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('about') }}" style="color: #314550">about_us</a></li>
-                                <li><a href="#" style="color: #314550">Career</a></li>
-                                <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                                <li><a href="#aboutus" style="color: #314550">About US</a></li>
+                                <li><a href="#testimonial" style="color: #314550">Testimonial</a></li>
+                                <li><a href="#service" style="color: #314550">Service</a></li>
                                 <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
                         </div>
@@ -42,12 +42,11 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
                     <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
-                        <h2 class="widgettitle" style="color: #314550">Services</h2>
+                        <h2 class="widgettitle" style="color: #314550">Service</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('about') }}" style="color: #314550">about_us</a></li>
-                                <li><a href="#" style="color: #314550">Career</a></li>
                                 <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                                {{-- <li><a href="#" style="color: #314550">Career</a></li> --}}
                                 <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
                         </div>

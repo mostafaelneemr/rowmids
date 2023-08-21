@@ -26,9 +26,7 @@ class ServiceDigitController extends Controller
 
     public function store(Request $request)
     {
-        // try{
-
-            // dd($request);
+        try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(370, 370)->save('upload/service/' . $name_gen);
@@ -39,13 +37,6 @@ class ServiceDigitController extends Controller
             Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
             $save_icon = 'upload/service/' . $name_gen;
 
-            // $icon = $request->file('icon');
-            // $filename = 'svg_' . time() . '.' . $icon->getClientOriginalExtension();
-            // $path = storage_path('app/public/images/');
-            // $icon->move($path, $filename);
-            // Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
-            // $save_icon = 'upload/service/' . $name_gen;
-
             ServiceDigital::create([
                 'title' => $request->title,
                 'desc' => $request->desc,
@@ -54,13 +45,13 @@ class ServiceDigitController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Digital Service Inserted Successfully',
+                'message' => 'About US Inserted Successfully',
                 'alert-type' => 'success',
             );
             return redirect::route('digitals.index')->with($notification);
-        // }catch (\Exception $e) {
-        //     return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-        // }
+        }catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
     public function show($id)
@@ -89,6 +80,15 @@ class ServiceDigitController extends Controller
                 ServiceDigital::findOrFail($id)->update(['image' => $save_url]);
             }
 
+            if($request->file('icon')){
+                @unlink($old_image);
+                $image = $request->file('icon');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(60, 65)->save('upload/service/'.$name_gen);
+                $save_icon = 'upload/service/'.$name_gen;
+                ServiceDigital::findOrFail($id)->update(['icon' => $save_icon]);
+            }
+
             ServiceDigital::findOrFail($id)->update([
                 'title' => $request->title,
                 'desc' => $request->desc,
@@ -96,7 +96,7 @@ class ServiceDigitController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Digital Service updated Successfully',
+                'message' => 'About US updated Successfully',
                 'alert-type' => 'info',
             );
             return redirect::route('digitals.index')->with($notification);

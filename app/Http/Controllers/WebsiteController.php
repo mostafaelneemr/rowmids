@@ -22,7 +22,7 @@ class WebsiteController extends Controller
     {
         $sliders = Slider::where('slider_type', 'home')->where('is_publish', 'active')->get();
         // $teams = Team::where('is_publish', 'active')->paginate(3);
-        $digitals = ServiceDigital::where('is_publish', 'active')->paginate(3);
+        $digitals = ServiceDigital::where('is_publish', 'active')->latest()->paginate(3);
         $testimonials = Testimonial::where('is_publish', 'active')->paginate(4);
         $galleries = Gallery::paginate(3);
         $pictures = ArchitecturePicture::get();

@@ -93,7 +93,6 @@ class ArchitectureController extends Controller
         }
     }
 
-
     public function destroy($id)
     {
         $architecture = Architecture::findOrFail($id);
@@ -106,4 +105,25 @@ class ArchitectureController extends Controller
         return $this->response(true, 200, $message );
     }
 
+    public function InactiveService($id)
+    {
+        Architecture::findOrFail($id)->update(['is_publish' => 'in-active']);
+        $notification = array(
+            'message' => 'Service is Inactive',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ActiveService($id)
+    {
+        Architecture::findOrFail($id)->update(['is_publish' => 'active']);
+        $notification = array(
+            'message' => 'Service is Active',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

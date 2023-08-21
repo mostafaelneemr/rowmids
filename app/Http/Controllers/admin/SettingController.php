@@ -65,7 +65,7 @@ class SettingController extends Controller
 
                             $path = $request->file('site_logo');
                             $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
-                            Image::make($path)->save('upload/logo/' . $name_gen);
+                            Image::make($path)->resize(230, 70)->save('upload/logo/' . $name_gen);
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }elseif($request->file('picture_service')){

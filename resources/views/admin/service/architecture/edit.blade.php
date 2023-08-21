@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    Edit architectures
+    Edit Service
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
-                    <li class="breadcrumb-item active">edit architectures section</li>
+                    <li class="breadcrumb-item active">edit service section</li>
                 </ol>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <div class="text-center">
                                 <img src="{{asset($architectures->icon)}}"
-                                     class="rounded-circle  h-25 w-25" alt="image slider">
+                                     class="rounded-circle h-30 w-30" alt="image slider">
                             </div>
                         </div>
 

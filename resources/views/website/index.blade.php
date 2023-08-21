@@ -41,8 +41,7 @@
                         data-textAlign="['inherit','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                         style="z-index: 7; min-width: 500px; max-width: 500px; white-space: normal; font-size: 20px; line-height: 40px; font-weight: 500; color: #999999; letter-spacing: 0px;"> {{ $slider->sub_title }} </h4>
-
-                        <p> {{ $slider->desc }} </p>
+                        {{-- <p> {{ $slider->desc }} </p> --}}
 
                     <!-- LAYER NR. 4 -->
                     <a class="tp-caption rev-btn " href="{{setting('slider_link')}}" id="slide-12-layer-8" data-x="['left','center','center','center']"
@@ -123,7 +122,7 @@
     </div> --}}
 
     <!-- Service Area Start -->
-<div class="service-area bg_color--5 ptb--150 ptb-md--80 ptb-sm--60" id>
+<div class="service-area bg_color--5 ptb--150 ptb-md--80 ptb-sm--60" id="aboutus">
     <div class="container">
         <div class="row align-content-center">
             <div class="col-lg-6 col-12">
@@ -147,7 +146,9 @@
                 <div class="single-svg-icon-box">
                     <div class="grid-overlay" style="background-image: url('{{ $digital->image }}')"></div>
                     <div class="inner">
-                        <div class="svg-icon" id="svg-icon-1" data-svg-icon="{{ $digital->icon }}"></div>
+                        <div class="icon mb--25">
+                            <img src="{{ $digital->icon }}" alt="Multipurpose">
+                        </div>                        
                         <div class="content">
                             <h5 class="heading heading-h5"> {{ $digital->title }}</h5>
                             <p>{{ $digital->desc }}</p>
@@ -259,7 +260,7 @@
 <!-- End Portfolio Area -->
 
 
-    <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60">
+    <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60" id="testimonial">
         <div class="wavify-wrapper">
             <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wavify-item"
                  data-wavify-height="140" data-wavify-background="rgba(245,245,245,0.5)" data-wavify-amplitude="80"
@@ -315,42 +316,62 @@
     </div>
 
 
-    <div class="brook-service-area architecture-service-container">
-        <h3 class="heading heading-h3" style="font-weight: bold; color: #314550; font-size: 61px; margin-left:10px">Key Services</h3>
 
-        <!-- Start Bg Thumbnail -->
-        @foreach ($pictures as $picture)
-        <div class="architecture-bg-thumbnail">
-            <div class="inner">
-                <!-- Start Single Image -->
-                <div class="architecture-hover-image active">
-                    <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')"></div>
+
+    <section class="bg_color--5">
+    <div class="container">
+        <div class="row align-content-center ">
+            <div class="col-lg-6 col-12">
+                <div class="bk-title--default text-start">
+                    <h1 class="theme-color fw-500 py-2" style="font-weight: bold; color: #314550; font-size: 61px;">KEY SERVICE</h1>
                 </div>
-                <!-- End Single Image -->
             </div>
         </div>
-        @endforeach
-        <!-- End Bg Thumbnail -->
-    
-        <div class="row">
-            <!-- Start Single Service -->
-            @foreach ($architectures as $architecture)
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
-                    <div class="architecture-inner">
-                        <div class="icon mb--25">
-                            <img src="{{ $architecture->icon }}" alt="Multipurpose">
-                        </div>
-                        <div class="content">
-                            <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
-                            <div class="bkseparator--20"></div> <p class="bk_pra">{{ $architecture->desc }}</p> </div>
+    </div>
+    </section>
+                <!-- Start Service Area -->
+                @foreach ($pictures as $picture)
+                <div class="brook-service-area architecture-service-container" id="service" style="background-image : url('{{ $picture->image }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+                    
+                    <!-- Start Bg Thumbnail -->
+                    <div class="architecture-bg-thumbnail">
+                        <div class="inner">
+                            <!-- Start Single Image -->
+                            <div class="architecture-hover-image active">
+                                <div class="bg-thumb"></div>
+                            </div>
+                            <!-- End Single Image -->    
                         </div>
                     </div>
+                    <!-- End Bg Thumbnail -->
+                    
+                    @foreach($architectures as $architecture)
+                        
+                    <div class="row">
+                        <!-- Start Single Service -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="architecture-service" data-image3="{{ $picture->image }}">
+                                <div class="architecture-inner">
+                                    <div class="icon mb--25">
+                                        <img src="{{ $architecture->icon }}" alt="Multipurpose">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
+                                        <div class="bkseparator--20"></div>
+                                        <p class="bk_pra">{{ $architecture->desc }}</p>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        <!-- End Single Service -->
+    
+                    </div>
                 </div>
-            @endforeach
-            <!-- End Single Service -->
-        </div>
-    </div>
+                @endforeach
+                <!-- End Service Area -->
+
     
 {{-- <section class="height-auto pb_sm--0" data-skin="black">
     <div class="presentation-slider-wrapper">
