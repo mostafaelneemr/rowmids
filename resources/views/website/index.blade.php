@@ -345,10 +345,10 @@
                     </div>
                     <!-- End Bg Thumbnail -->
                     
-                    @foreach($architectures as $architecture)
-                        
+                    
                     <div class="row">
                         <!-- Start Single Service -->
+                        @foreach($architectures as $architecture)
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="architecture-service" data-image3="{{ $picture->image }}">
                                 <div class="architecture-inner">
@@ -363,8 +363,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
                         <!-- End Single Service -->
     
                     </div>
