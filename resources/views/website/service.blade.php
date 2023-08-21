@@ -129,42 +129,6 @@
     <!-- End Single Service -->
 
 </div>
-<!-- End Service List -->
-
-<div class="brook-service-area architecture-service-container">
-    <!-- Start Bg Thumbnail -->
-    @foreach ($pictures as $picture)
-    <div class="architecture-bg-thumbnail">
-        <div class="inner">
-            <!-- Start Single Image -->
-            <div class="architecture-hover-image active">
-                <div class="bg-thumb" style="background-image: url('{{ $picture->image }}')"></div>
-            </div>
-            <!-- End Single Image -->
-        </div>
-    </div>
-    @endforeach
-    <!-- End Bg Thumbnail -->
-
-    <div class="row">
-        <!-- Start Single Service -->
-        @foreach ($architectures as $architecture)
-        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
-                <div class="architecture-inner">
-                    <div class="icon mb--25">
-                        <img src="{{ $architecture->icon }}" alt="Multipurpose">
-                    </div>
-                    <div class="content">
-                        <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
-                        <div class="bkseparator--20"></div> <p class="bk_pra">{{ $architecture->desc }}</p> </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-        <!-- End Single Service -->
-    </div>
-</div>
 
     @include('website.call')
 

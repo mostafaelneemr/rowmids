@@ -1,10 +1,10 @@
     <!-- Start Call To Action -->
-    <div class="brook-call-to-action bg_color--12 ptb--50">
+    <div class="brook-call-to-action ptb--50" style="background-color: #f26728">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 col-sm-6 col-12">
                     <div class="call-content text-center text-sm-left">
-                        <h3 class="heading heading-h3 font-32">{{ setting('call_text') }}</h3>
+                        <h3 class="heading heading-h3 font-32" style="font-size: 50px;color: #fff">{{ setting('call_text') }}</h3>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-12">

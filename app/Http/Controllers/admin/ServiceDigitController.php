@@ -34,11 +34,10 @@ class ServiceDigitController extends Controller
             Image::make($image)->resize(370, 370)->save('upload/service/' . $name_gen);
             $save_url = 'upload/service/' . $name_gen;
 
-
-            if ($request->hasFile('icon')) {
-                $image = $request->file('icon');
-                $path = $image->store('icon', 'public'); // Store in 'public/images' directory
-            }
+            $image = $request->file('icon');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
+            $save_icon = 'upload/service/' . $name_gen;
 
             // $icon = $request->file('icon');
             // $filename = 'svg_' . time() . '.' . $icon->getClientOriginalExtension();
@@ -51,7 +50,7 @@ class ServiceDigitController extends Controller
                 'title' => $request->title,
                 'desc' => $request->desc,
                 'image' => $save_url,
-                'icon' => $path,
+                'icon' => $save_icon,
             ]);
 
             $notification = array(

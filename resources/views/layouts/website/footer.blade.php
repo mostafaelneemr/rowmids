@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer id="bk-footer" class="page-footer bg_color--3 pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30 pr_md--30 pl_sm--5 pr_sm--5">
+<footer id="bk-footer" class="page-footer pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30 pl_sm--5 pr_sm--5" style="background-color: #fff;">
     <!-- Start Footer Top Area -->
-    <div class="bk-footer-inner pt--150 pb--30 pt_sm--100">
+    <div class="bk-footer-inner pt--110 pb--20 pt_sm--80">
         <div class="container">
             <div class="row">
 
@@ -21,20 +21,20 @@
                             
                         </div>
                         <div class="footer-inner">
-                            <p>Brook is a multi-purpose WordPress theme for big and small-sized businesses. Enjoy the theme's original design, functional features & responsive layouts.</p>
+                            <p style="color: #314550;">{{ setting('footer_text') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
                     <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
-                        <h2 class="widgettitle">Home</h2>
+                        <h2 class="widgettitle" style="color: #314550">Home</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('about') }}">about_us</a></li>
-                                <li><a href="#">Career</a></li>
-                                <li><a href="{{ route('service') }}">service</a></li>
-                                <li><a href="{{ route('contact') }}">contact</a></li>
+                                <li><a href="{{ route('about') }}" style="color: #314550">about_us</a></li>
+                                <li><a href="#" style="color: #314550">Career</a></li>
+                                <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                                <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,13 +42,13 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
                     <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
-                        <h2 class="widgettitle">About us</h2>
+                        <h2 class="widgettitle" style="color: #314550">Services</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('about') }}">about_us</a></li>
-                                <li><a href="#">Career</a></li>
-                                <li><a href="{{ route('service') }}">service</a></li>
-                                <li><a href="{{ route('contact') }}">contact</a></li>
+                                <li><a href="{{ route('about') }}" style="color: #314550">about_us</a></li>
+                                <li><a href="#" style="color: #314550">Career</a></li>
+                                <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                                <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -56,14 +56,14 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
                     <div class="footer-widget text-var--2 menu--contact">
-                        <h2 class="widgettitle">contact</h2>
+                        <h2 class="widgettitle" style="color: #314550">contact</h2>
                         <div class="footer-address">
                             <div class="bk-hover">
-                                <p>{{ setting('address') }}</p>
-                                <p><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
-                                <p><a href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a></p>
+                                <p style="color: #314550">{{ setting('address') }}</p>
+                                <p><a href="mailto:{{ setting('email') }}" style="color: #314550">{{ setting('email') }}</a></p>
+                                <p><a href="https://wa.me/{{ setting('phone') }}" style="color: #314550">{{ setting('phone') }}</a></p>
                             </div>
-                            <div class="social-share social--transparent text-white">
+                            <div class="social-share">
                                 <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>
                                 <a href="{{ setting('twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
                                 <a href="{{ setting('instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -183,15 +183,15 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright-left text-md-start text-center">
                         <ul class="bk-copyright-menu d-flex bk-hover justify-content-center justify-content-md-start flex-wrap flex-sm-nowrap">
-                            <li><a href="{{ route('about') }}">about</a></li>
-                            <li><a href="{{ route('service') }}">service</a></li>
-                            <li><a href="{{ route('contact') }}">contact_us</a></li>
+                            <li><a href="{{ route('about') }}" style="color: #314550">about</a></li>
+                            <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                            <li><a href="{{ route('contact') }}" style="color: #314550">contact_us</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright-right text-md-end text-center">
-                        <p>{{ setting('copyright') }}</a></p>
+                        <p style="color: #314550">{{ setting('copyright') }}</a></p>
                     </div>
                 </div>
             </div>

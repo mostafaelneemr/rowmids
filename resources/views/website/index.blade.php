@@ -128,9 +128,9 @@
         <div class="row align-content-center">
             <div class="col-lg-6 col-12">
                 <div class="bk-title--default text-start">
-                    <h1 class="theme-color text-uppercase fw-500">{{ setting('title') }}</h1>
+                    <h1 class="theme-color fw-500" style="font-weight: bold; color: #314550; font-size: 61px;">{{ setting('title') }}</h1>
                     <div class="bkseparator--30"></div>
-                    <h3 class="heading-40 fw-200">{{ setting('digital_title') }}</h3>
+                    <h3 class="heading-40 fw-200" style="font-size: 30px;">{{ setting('digital_title') }}</h3>
                 </div>
             </div>
             <div class="col-lg-6 col-12 mt_md--30 mt_sm--30">
@@ -231,31 +231,31 @@
 
 
  <!-- Start Portfolio Area -->
- <div class="brook-portfolio-area ptb--100 ptb-md--80 ptb-sm--60 bg_color--1 basic-thine-line">
-    <div class="container">
-        <div class="row row--3">
-            <div class="col-lg-12 mb--60">
-                <div class="brook-section-title text-center">
+ {{-- <div class="brook-portfolio-area ptb--100 ptb-md--80 ptb-sm--60 bg_color--1 basic-thine-line"> --}}
+    {{-- <div class="container"> --}}
+        {{-- <div class="row row--3"> --}}
+            {{-- <div class="col-lg-12 mb--60"> --}}
+                {{-- <div class="brook-section-title text-center"> --}}
                     {{-- <h3 class="heading heading-h3 mb--30">Style Parallax</h3> --}}
-                </div>
-            </div>
+                {{-- </div> --}}
+            {{-- </div> --}}
 
-            <div class="paralax-grid">
+            {{-- <div class="paralax-grid"> --}}
                 <!-- Start Single Portfolio -->
-                @foreach ($galleries as $gallery)
-                <div class="single-paralax">
-                    <div class="paralax-portfolio" data-tilt>
-                        <div class="portfolio-bg" style="background-image: url('{{ $gallery->image }}')"></div>
-                    </div>
-                </div>
-                @endforeach
+                {{-- @foreach ($galleries as $gallery) --}}
+                {{-- <div class="single-paralax"> --}}
+                    {{-- <div class="paralax-portfolio" data-tilt> --}}
+                        {{-- <div class="portfolio-bg" style="background-image: url('{{ $gallery->image }}')"></div> --}}
+                    {{-- </div> --}}
+                {{-- </div> --}}
+                {{-- @endforeach --}}
                 <!-- End Single Portfolio -->
 
-            </div>
+            {{-- </div> --}}
 
-        </div>
-    </div>
-</div>
+        {{-- </div> --}}
+    {{-- </div> --}}
+{{-- </div> --}}
 <!-- End Portfolio Area -->
 
 
@@ -279,7 +279,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-12 text-center ptb-md--80 ptb-sm--80">
                     <div class="brook-section-title text-start title-max-width plr_sm--50">
-                        <h3 class="heading heading-h3">{{ setting('about_testimonial') }}</h3>
+                        <h3 class="heading heading-h3" style="font-weight: bold; color: #314550; font-size: 40px;">{{ setting('about_testimonial') }}</h3>
                     </div>
                 </div>
 
@@ -316,6 +316,8 @@
 
 
     <div class="brook-service-area architecture-service-container">
+        <h3 class="heading heading-h3" style="font-weight: bold; color: #314550; font-size: 61px; margin-left:10px">Key Services</h3>
+
         <!-- Start Bg Thumbnail -->
         @foreach ($pictures as $picture)
         <div class="architecture-bg-thumbnail">
@@ -333,7 +335,7 @@
         <div class="row">
             <!-- Start Single Service -->
             @foreach ($architectures as $architecture)
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="architecture-service" data-image3="img/bg/bg-image-68.jpg">
                     <div class="architecture-inner">
                         <div class="icon mb--25">

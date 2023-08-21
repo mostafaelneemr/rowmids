@@ -22,14 +22,14 @@ class WebsiteController extends Controller
     {
         $sliders = Slider::where('slider_type', 'home')->where('is_publish', 'active')->get();
         // $teams = Team::where('is_publish', 'active')->paginate(3);
+        $digitals = ServiceDigital::where('is_publish', 'active')->paginate(3);
         $testimonials = Testimonial::where('is_publish', 'active')->paginate(4);
         $galleries = Gallery::paginate(3);
-        $digitals = ServiceDigital::where('is_publish', 'active')->paginate(3);
         $pictures = ArchitecturePicture::get();
-        $architectures = Architecture::get();
+        $architectures = Architecture::paginate(3);
         // $brands = Brand::where('is_publish', 'active')->paginate(4);
         return view('website.index', compact('sliders', 'digitals','testimonials', 'galleries', 'pictures', 'architectures'));
-    }
+    }   
 
     public function about()
     {
