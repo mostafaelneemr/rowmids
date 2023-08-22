@@ -56,9 +56,9 @@
         <div class="row align-content-center">
             <div class="col-lg-6 col-12">
                 <div class="bk-title--default text-start">
-                    <h1 class="theme-color text-uppercase fw-500">{{ setting('title') }}</h1>
+                    <h1 class="theme-color fw-500" style="font-weight: bold; color: #314550; font-size: 61px;">{{ setting('title') }}</h1>
                     <div class="bkseparator--30"></div>
-                    <h3 class="heading-40 fw-200">{{ setting('digital_title') }}</h3>
+                    <h3 class="heading-40 fw-200" style="font-size: 30px;">{{ setting('digital_title') }}</h3>
                 </div>
             </div>
             <div class="col-lg-6 col-12 mt_md--30 mt_sm--30">
@@ -71,11 +71,13 @@
 
             @foreach($digitals as $digital)
             <!-- Single SVG Icon Box Start -->
-            <div class="col-xl-4 col-lg-6 col-md-6 mb_lg--30 mb_md--30 mb_sm--30 mb-3">
+            <div class="col-xl-4 col-lg-6 col-md-6 mb_lg--30 mb_md--30 mb_sm--30">
                 <div class="single-svg-icon-box">
                     <div class="grid-overlay" style="background-image: url('{{ $digital->image }}')"></div>
                     <div class="inner">
-                        <svg class="svg-icon" id="svg-icon-1" data-svg-icon="{{ $digital->icon }}"></svg>
+                        <div class="icon mb--25">
+                            <img src="{{ $digital->icon }}" alt="Multipurpose">
+                        </div>                        
                         <div class="content">
                             <h5 class="heading heading-h5"> {{ $digital->title }}</h5>
                             <p>{{ $digital->desc }}</p>
@@ -85,8 +87,6 @@
             </div>
             <!-- Single SVG Icon Box End -->
             @endforeach
-
-
         </div>
     </div>
 </div>

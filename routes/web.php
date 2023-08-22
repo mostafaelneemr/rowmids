@@ -19,7 +19,6 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\WebsiteController;
-use App\Models\admin\ArchitecturePicture;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
 
@@ -96,8 +95,6 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         // Route::get('brand/active{id}', [BrandController::class, 'ActiveBrand'])->name('active.brand');
     });
 
-
-
     Route::group(['prefix' => '/career'], function() {
         Route::resource('career-slider', CareerSliderController::class);
         Route::resource('career-position', CareerController::class);
@@ -115,7 +112,6 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
 
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');
     Route::get('/slider/active{id}', [HomeSliderController::class, 'ActiveSlider'])->name('active.slider');
-
 
     Route::get('/setting', [SettingController::class,'index'])->name('setting.index');
     Route::patch('/setting', [SettingController::class,'update'])->name('setting.update');
