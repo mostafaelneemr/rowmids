@@ -179,15 +179,15 @@
     <div class="copyright ptb--50 text-var-2">
         <div class="container">
             <div class="row align-items-center">
-                {{-- <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="copyright-left text-md-start text-center">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    {{-- <div class="copyright-left text-md-start text-center">
                         <ul class="bk-copyright-menu d-flex bk-hover justify-content-center justify-content-md-start flex-wrap flex-sm-nowrap">
                             <li><a href="{{ route('about') }}" style="color: #314550">about</a></li>
                             <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
                             <li><a href="{{ route('contact') }}" style="color: #314550">contact_us</a></li>
                         </ul>
-                    </div>
-                </div> --}}
+                    </div> --}}
+                </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright-right text-md-end text-center">
                         <p style="color: #314550">{{ setting('copyright') }}</a></p>
