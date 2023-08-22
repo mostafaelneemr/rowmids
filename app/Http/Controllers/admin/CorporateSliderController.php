@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
+use App\Http\Requests\SliderRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
-class AboutSliderController extends Controller
+
+class CorporateSliderController extends Controller
 {
-    CONST SLIDER_TYPE = 'about';
+    CONST SLIDER_TYPE = 'corporate';
 
     public function index()
     {
         $sliders = Slider::where('slider_type', self::SLIDER_TYPE)->get();
-        return $this->view('about.slider.index', compact('sliders'));
+        return $this->view('csr.slider.index', compact('sliders'));
     }
 
     public function create()
@@ -24,7 +25,7 @@ class AboutSliderController extends Controller
         if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
-        return $this->view('about.slider.create');
+        return $this->view('csr.slider.create');
     }
 
     public function store(SliderRequest $request)
@@ -32,8 +33,8 @@ class AboutSliderController extends Controller
        try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1920, 1000)->save('upload/about/' . $name_gen);
-            $save_url = 'upload/about/' . $name_gen;
+            Image::make($image)->resize(1920, 1000)->save('upload/csr/' . $name_gen);
+            $save_url = 'upload/csr/' . $name_gen;
 
             Slider::create([
                 'title' => $request->title,
@@ -46,7 +47,7 @@ class AboutSliderController extends Controller
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect::route('about-slider.index')->with($notification);
+            return redirect::route('csr-slider.index')->with($notification);
        }catch (\Exception $e) {
            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
        }
@@ -62,7 +63,7 @@ class AboutSliderController extends Controller
     public function edit($id)
     {
         $sliders = Slider::findOrFail($id);
-        return $this->view('about.slider.edit', compact('sliders'));
+        return $this->view('csr.slider.edit', compact('sliders'));
     }
 
     public function update(SliderRequest $request, $id)
@@ -75,8 +76,8 @@ class AboutSliderController extends Controller
                 @unlink($old_image);
                 $image = $request->file('image');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(1920,1000)->save('upload/about/'.$name_gen);
-                $save_url = 'upload/about/'.$name_gen;
+                Image::make($image)->resize(1920,1000)->save('upload/csr/'.$name_gen);
+                $save_url = 'upload/csr/'.$name_gen;
                 Slider::findOrFail($id)->update(['image' => $save_url]);
             }
 
@@ -89,7 +90,7 @@ class AboutSliderController extends Controller
                 'message' => 'slider updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect::route('about-slider.index')->with($notification);
+            return redirect::route('csr-slider.index')->with($notification);
         } catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
@@ -98,8 +99,8 @@ class AboutSliderController extends Controller
     public function destroy($id)
     {
         $slider = Slider::findOrFail($id);
-        $image = Str::after($slider->image, 'upload/about/');
-        $image = public_path('upload/about/' . $image);
+        $image = Str::after($slider->image, 'upload/csr/');
+        $image = public_path('upload/csr/' . $image);
         unlink($image);
         $slider->delete();
 

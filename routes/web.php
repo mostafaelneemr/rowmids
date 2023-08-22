@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CareerSliderController;
 use App\Http\Controllers\admin\ClientSliderController;
 use App\Http\Controllers\admin\ContactSliderController;
+use App\Http\Controllers\admin\CorporateSliderController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\PortfolioSliderController;
@@ -108,6 +109,10 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         Route::get('messages', [SendEmailController::class, 'adminindex'])->name('contact.messages');
         Route::post('messages/{id}', [SendEmailController::class, 'deletemessage'])->name('deletemessage');
 
+    });
+
+    Route::group(['prefix' => '/csr'] , function () {
+        Route::resource('csr-slider', CorporateSliderController::class);
     });
 
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');

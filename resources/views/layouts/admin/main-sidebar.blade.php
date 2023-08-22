@@ -100,6 +100,18 @@
             </ul>
           </li>
 
+          <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#csr">
+              <div class="pull-left"><i class="fa fa-phone"></i><span class="right-nav-text">Corporate Social</span></div>
+              <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+            </a>
+            <ul id="csr" class="collapse" data-parent="#sidebarnav">
+              <li><a href="{{route('csr-slider.index')}}">Slider</a></li>
+              {{-- <li><a href="{{route('contact.messages')}}">Messages</a></li> --}}
+ 
+             </ul>
+           </li>
+
           <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Settings</li>
 
           <li>
