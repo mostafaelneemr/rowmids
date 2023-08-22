@@ -3,6 +3,47 @@
 
 <head>
     @include('layouts.website.style')
+
+    <style>
+        .open-hamberger-wrapper {
+  /* background-image: url(img/bg/bg-image-28.jpg); */
+  background-color: #222;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  visibility: hidden;
+  overflow: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  transform: scale(0.3);
+  padding: 100px 120px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  padding-top: 60px; }
+    </style>
 </head>
 
 <body class="template-color-37 template-font-1">
@@ -102,7 +143,7 @@
         <!-- End Popup Menu -->
 
         <!-- Start Hamberger Menu -->
-        <div class="open-hamberger-wrapper d-none d-lg-block">
+        <div class="open-hamberger-wrapper d-none d-lg-block" style="background-image: url('{{ setting('image_navbar') }}')">
             <div class="page-close light-version"></div>
 
             <div class="header-default light-logo--version poss_relative">
@@ -194,7 +235,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="copyright-right text-end">
-                            <p class="bk_pra font-16">© 2019 Brook. All Rights Reserved.</p>
+                            <p class="bk_pra font-16">{{ setting('copyright') }}</p>
                         </div>
                     </div>
                 </div>

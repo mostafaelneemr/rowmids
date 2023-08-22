@@ -62,7 +62,6 @@ class SettingController extends Controller
                         // $path = $request->file('site_logo')->store(setting('system_path').'/logo/'.md5(time()).'/'.date('Y/m/d'));
                       
                         if($request->file('site_logo')){
-
                             $path = $request->file('site_logo');
                             $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
                             Image::make($path)->resize(230, 70)->save('upload/logo/' . $name_gen);
@@ -78,6 +77,12 @@ class SettingController extends Controller
                             $path = $request->file('admin_logo');
                             $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
                             Image::make($path)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }elseif($request->file('image_navbar')){
+                            $path = $request->file('image_navbar');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->resize(1920, 1000)->save('upload/logo/' . $name_gen);
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }

@@ -260,7 +260,7 @@
 <!-- End Portfolio Area -->
 
 
-    <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60" id="testimonial">
+    {{-- <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60" id="testimonial">
         <div class="wavify-wrapper">
             <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wavify-item"
                  data-wavify-height="140" data-wavify-background="rgba(245,245,245,0.5)" data-wavify-amplitude="80"
@@ -313,7 +313,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

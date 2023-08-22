@@ -50,7 +50,6 @@
     <!-- END REVOLUTION SLIDER -->
 </div>
 
-
 <!-- Service Area Start -->
 <div class="service-area bg_color--5 ptb--150 ptb-md--80 ptb-sm--60">
     <div class="container">
@@ -96,7 +95,7 @@
 
 
   <!-- Start Breadcaump Area -->
-  <div class="brook-breadcaump-area pt--130 pb--145 bg_color--1 breadcaump-title-bar">
+  {{-- <div class="brook-breadcaump-area pt--130 pb--145 bg_color--1 breadcaump-title-bar">
     <div class="container-fluid plr--150 plr_sm--20">
         <div class="row">
             <div class="col-lg-12">
@@ -106,12 +105,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- End Breadcaump Area -->
 
 
  <!-- Start Team Area -->
- <div class="brook-team-area bg_color--1 slick-arrow-hover">
+ {{-- <div class="brook-team-area bg_color--1 slick-arrow-hover">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -158,11 +157,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- End Team Area -->
 
 
-<div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60">
+{{-- <div class="brook-testimonial-area poss_relative wavify-activation ptb--200 ptb-md--80 ptb-sm--60">
     <div class="wavify-wrapper">
         <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wavify-item"
              data-wavify-height="140" data-wavify-background="rgba(245,245,245,0.5)" data-wavify-amplitude="80"
@@ -219,7 +218,7 @@
 
         </div>
     </div>
-</div>
+</div> --}}
 
     @include('website.call')
 @endsection
