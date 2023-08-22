@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer id="bk-footer" class="page-footer pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30  pl_sm--5 pr_sm--5" style="background-color: #fff;">
+<footer id="bk-footer" class="page-footer bg_color--5 pl--150 pr--150 pl_lg--30 pr_lg--30 pl_md--30  pl_sm--5 pr_sm--5">
     <!-- Start Footer Top Area -->
     <div class="bk-footer-inner pt--80 pb--15 pt_sm--100">
         <div class="container">
