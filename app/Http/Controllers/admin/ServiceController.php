@@ -22,7 +22,6 @@ class ServiceController extends Controller
         return $this->view('service.service.create');
     }
 
-
     public function store(Request $request)
     {
        try{
@@ -47,19 +46,16 @@ class ServiceController extends Controller
        }
     }
 
-
     public function show($id)
     {
         return back();
     }
-
 
     public function edit($id)
     {
         $services = Service::findOrFail($id);
         return $this->view('service.service.edit', compact('services'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -91,7 +87,6 @@ class ServiceController extends Controller
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
-
 
     public function destroy($id)
     {

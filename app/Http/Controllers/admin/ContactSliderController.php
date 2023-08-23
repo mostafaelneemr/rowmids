@@ -5,7 +5,6 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderRequest;
 use App\Models\admin\Slider;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -20,15 +19,13 @@ class ContactSliderController extends Controller
         return $this->view('contact.slider.index', compact('sliders'));
     }
 
-
     public function create()
     {
-        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() > 1){
+        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
         return $this->view('contact.slider.create', $this->viewData);
     }
-
 
     public function store(SliderRequest $request)
     {

@@ -7,6 +7,7 @@ use App\Models\admin\Architecture;
 use App\Models\admin\ArchitecturePicture;
 use App\Models\admin\Brand;
 use App\Models\admin\Career;
+use App\Models\admin\Corporate;
 use App\Models\admin\Gallery;
 use App\Models\admin\Service;
 use App\Models\admin\ServiceDecoration;
@@ -86,6 +87,18 @@ class WebsiteController extends Controller
         $sliders = Slider::where('slider_type', 'career')->where('is_publish', 'active')->get();
         $careers = Career::where('is_publish', 'active')->get();
         return view('website.career', compact('sliders', 'careers'));
+    }
+
+    public function corporate()
+    {
+        if (ActivationSetting::where('type', 'csr_page')->first()->value == '0'){
+            return back();
+        }
+
+        $sliders = Slider::where('slider_type', 'corporate')->where('is_publish', 'active')->get();
+        $corporates = Corporate::where('is_publish', 'active')->get();
+        return view('website.csr', compact('sliders', 'corporates'));
+
     }
 
     public function contact()

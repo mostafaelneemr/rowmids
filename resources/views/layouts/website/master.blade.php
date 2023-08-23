@@ -105,6 +105,10 @@
                             <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
                         @endif
 
+                        @if(\App\Models\admin\ActivationSetting::where('type', 'csr_page')->first()->value == '1')
+                        <li class="lavel-1"><a href="{{ route('corporate') }}"><span>CSR</span></a></li>
+                        @endif
+
                         <li><a href="{{ route('contact') }}"><span>Contact us</span></a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"><span>Pages</span></a>
@@ -171,6 +175,10 @@
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'career_page')->first()->value == '1')
                                 <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
+                            @endif
+
+                            @if(\App\Models\admin\ActivationSetting::where('type', 'csr_page')->first()->value == '1')
+                            <li class="lavel-1"><a href="{{ route('corporate') }}"><span>CSR</span></a></li>
                             @endif
 
                             <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact US</span></a></li>

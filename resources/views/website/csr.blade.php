@@ -63,66 +63,20 @@
     <!-- END REVOLUTION SLIDER -->
 </div>
 
-{{-- <div class="home-decoration-area bg_color--1 mt-3 mb-3">
-    <div class="container-fluid">
-        <div class="row align-items-center no-gutters">
-            <div class="col-lg-6">
-                <div class="thumbnail space_decLeft--170">
-                    <img class="w-100" src="{{ setting('picture_service') }}" alt="Multipurpose">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="home-decoration-inner lr-padding">
-                    <div class="content">
-                        <h2 class="heading heading-h2">{{ setting('header_service') }}</h2>
-                        <div class="bkseparator--70"></div>
-                        <h3 class="heading heading-h3 theme-color wow move-up">{{ setting('title_service') }}</h3>
-                        <div class="content mt--20 mb--65">
-                            <p class="bk_pra font-18 line-height-1-87 wow move-up">{{ setting('desc_service') }}</p>
-                        </div>
-                    </div>
-                    <div class="basic-thine-line"></div>
-
-                    <!-- Accordion Area -->
-                    @foreach($decores as $decore)
-                    <div class="bk-accordion-style--2 mt--55 wow move-up" id="accordionExampl3">
-
-                        <div class="card">
-                            <div class="card-header" id="headingsix">
-                                <h5 class="mb-0">
-                                    <a href="#" class="acc-btn" data-bs-toggle="collapse" data-bs-target="#collapsesix{{ $decore->id }}"
-                                    aria-expanded="false" aria-controls="collapsesix"> {{ $decore->title }} </a>
-                                </h5>
-                            </div>
-
-                            <div id="collapsesix{{ $decore->id }}" class="collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExampl3">
-                                <div class="card-body">{{ $decore->desc }}</div>
-                            </div>
-                        </div>
-
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
 <!-- Start Service List -->
 <div class="brook-service-list-area">
 
     <!-- Start Single Service -->
-    @foreach ($services as $service)
+    @foreach ($corporates as $corporate)
         
     <div class="bk-service-list d-block d-md-flex mb--40 align-items-center wow move-up">
         <div class="thumb">
-            <img class="w--100" src="{{ $service->image }}" alt="service list">
+            <img class="w--100" src="{{ $corporate->image }}" alt="service list">
         </div>
         <div class="content plr--130 plr_md--50 plr_sm--40">
-            <h3 class="heading heading-h3">{{ $service->title }}</h3>
+            <h3 class="heading heading-h3">{{ $corporate->title }}</h3>
             <div class="bkseparator--35"></div>
-            <p class="bk_pra">{!! $service->desc !!} </p>
+            <p class="bk_pra">{!! $corporate->desc !!} </p>
         </div>
     </div>
     @endforeach

@@ -57,12 +57,12 @@
                     <div class="footer-widget text-var--2 menu--contact">
                         <h2 class="widgettitle" style="color: #314550">Contact US</h2>
                         <div class="footer-address">
-                            <div class="" style="line-height: 15px">
-                                <p style="color: #314550; font-size: 20px;">{{ setting('address') }}</p>
-                                <p><a style="color: #314550; font-size: 20px; " href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
-                                <p><a style="color: #314550; font-size: 20px; " href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a></p>
+                            <div class="">
+                                <p class="my-3" style="color: #314550; font-size: 20px;">{{ setting('address') }}</p>
+                                <p class="my-3"><a style="color: #314550; font-size: 20px; " href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
+                                <p class="my-3"><a style="color: #314550; font-size: 20px; " href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a></p>
                             </div>
-                            <div class="social-share">
+                            <div class="social-share my-0">
                                 <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>
                                 <a href="{{ setting('twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
                                 <a href="{{ setting('instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>

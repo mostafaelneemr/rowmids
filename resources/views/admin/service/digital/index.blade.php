@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    Service Digit
+    About US
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3> Digitals
+                    <h3> About US
                         <a href="{{route('digitals.create')}}" class="btn btn-primary text-white float-start m-4">Add Section</a>
                     </h3>
                 </div>

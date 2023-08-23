@@ -26,7 +26,7 @@
         <li class="nav-item fullscreen">
             <a id="btnFullscreen" href="#" class="nav-link" ><i class="ti-fullscreen"></i></a>
         </li>
-        <li class="nav-item dropdown ">
+        {{-- <li class="nav-item dropdown ">
             <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <i class="ti-bell"></i>
               <span class="badge badge-danger notification-status"> </span>
@@ -43,7 +43,7 @@
               <a href="#" class="dropdown-item">Database report<small class="float-right text-muted time">1 days</small> </a>
               <a href="#" class="dropdown-item">Order confirmation<small class="float-right text-muted time">2 days</small> </a>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item dropdown mr-30">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

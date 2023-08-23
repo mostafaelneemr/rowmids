@@ -1,19 +1,19 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    edit digital
+    edit about-us
 @endsection
 
 @section('content')
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">Edit digital</h4>
+                <h4 class="mb-0">Edit About US</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
-                    <li class="breadcrumb-item active">edit digital section</li>
+                    <li class="breadcrumb-item active">edit about section</li>
                 </ol>
             </div>
         </div>
@@ -35,7 +35,14 @@
                         <input type="hidden" name="old_icon" value="{{ $digitals->icon }}">
 
                         <div class="form-group">
-                            <label> Digit icon</label>
+                            <div class="text-center">image
+                                <img src="{{asset($digitals->image)}}"
+                                     class="rounded-circle  h-25 w-25" alt="image slider">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label> about-us icon</label>
                             <label id="projectinput8" class="file center-block">
                                 <input type="file" id="file" name="icon" >
                                 <span class="file-custom"></span>
@@ -44,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label> Digit image</label>
+                            <label> about-us image</label>
                             <label id="projectinput7" class="file center-block">
                                 <input type="file" id="file" name="image" >
                                 <span class="file-custom"></span>

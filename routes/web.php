@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CareerSliderController;
 use App\Http\Controllers\admin\ClientSliderController;
 use App\Http\Controllers\admin\ContactSliderController;
+use App\Http\Controllers\admin\CorporateController;
 use App\Http\Controllers\admin\CorporateSliderController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeSliderController;
@@ -112,7 +113,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
     });
 
     Route::group(['prefix' => '/csr'] , function () {
-        Route::resource('csr-slider', CorporateSliderController::class);
+        Route::resource('/csr-slider', CorporateSliderController::class);
+
+        Route::resource('/corporate', CorporateController::class);
+        Route::get('/corporate/inactive/{id}', [CorporateController::class, 'InactiveCsr'])->name('inactive.csr');
+        Route::get('/corporate/active{id}', [CorporateController::class, 'ActiveCsr'])->name('active.csr');
     });
 
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');
@@ -143,5 +148,6 @@ Route::get('/service', [WebsiteController::class, 'service'])->name('service');
 Route::get('/client', [WebsiteController::class, 'client'])->name('client');
 Route::get('/portfolio', [WebsiteController::class, 'portfolio'])->name('portfolio');
 Route::get('/career', [WebsiteController::class, 'career'])->name('career');
+Route::get('/corporate', [WebsiteController::class, 'corporate'])->name('corporate');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');

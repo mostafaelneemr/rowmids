@@ -87,6 +87,13 @@ class SettingController extends Controller
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }
+                        elseif($request->file('login_bg')){
+                            $path = $request->file('login_bg');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->resize(1920, 1080)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }
 
 
 
