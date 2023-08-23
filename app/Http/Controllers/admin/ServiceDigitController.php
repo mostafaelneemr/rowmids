@@ -29,13 +29,13 @@ class ServiceDigitController extends Controller
         try{
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(370, 370)->save('upload/service/' . $name_gen);
-            $save_url = 'upload/service/' . $name_gen;
+            Image::make($image)->resize(370, 370)->save('upload/about/' . $name_gen);
+            $save_url = 'upload/about/' . $name_gen;
 
             $image = $request->file('icon');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(60, 65)->save('upload/service/' . $name_gen);
-            $save_icon = 'upload/service/' . $name_gen;
+            Image::make($image)->resize(60, 65)->save('upload/about/' . $name_gen);
+            $save_icon = 'upload/about/' . $name_gen;
 
             ServiceDigital::create([
                 'title' => $request->title,
@@ -70,22 +70,23 @@ class ServiceDigitController extends Controller
         try {
             $id = $request->id;
             $old_image = $request->old_image;
+            $old_icon = $request->old_icon;
 
             if($request->file('image')){
                 @unlink($old_image);
                 $image = $request->file('image');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(370,370)->save('upload/service/'.$name_gen);
-                $save_url = 'upload/service/'.$name_gen;
+                Image::make($image)->resize(370,370)->save('upload/about/'.$name_gen);
+                $save_url = 'upload/about/'.$name_gen;
                 ServiceDigital::findOrFail($id)->update(['image' => $save_url]);
             }
 
             if($request->file('icon')){
-                @unlink($old_image);
+                @unlink($old_icon);
                 $image = $request->file('icon');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(60, 65)->save('upload/service/'.$name_gen);
-                $save_icon = 'upload/service/'.$name_gen;
+                Image::make($image)->resize(60, 65)->save('upload/about/'.$name_gen);
+                $save_icon = 'upload/about/'.$name_gen;
                 ServiceDigital::findOrFail($id)->update(['icon' => $save_icon]);
             }
 

@@ -32,6 +32,7 @@
 
                         <input type="hidden" name="id" value="{{ $digitals->id }}">
                         <input type="hidden" name="old_image" value="{{ $digitals->image }}">
+                        <input type="hidden" name="old_icon" value="{{ $digitals->icon }}">
 
                         <div class="form-group">
                             <label> Digit icon</label>
