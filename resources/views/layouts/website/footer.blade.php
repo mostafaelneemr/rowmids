@@ -11,8 +11,8 @@
                             <a href="#"> 
 
                                 {{-- <img src="{{ img(setting('site_logo')) }}" alt=""> --}}
-                                @if(!empty($site_logo = \App\Models\admin\Setting::where('name','site_logo')->value('value')))
-				<img alt="Logo" src="{{ $site_logo}}" />
+                                @if(!empty($footer_logo = \App\Models\admin\Setting::where('name','footer_logo')->value('value')))
+				<img alt="Logo" src="{{ $footer_logo}}" />
 			@else
 				<img alt="Logo" src="{{ url('public/Logo-PNG_3.png')}}" style="width: 100%;" />
 			@endif
@@ -33,7 +33,7 @@
                             <ul class="ft-menu-list bk-hover">
                                 <li><a href="#aboutus" style="color: #314550">About US</a></li>
                                 <li><a href="#testimonial" style="color: #314550">Testimonial</a></li>
-                                <li><a href="#service" style="color: #314550">Service</a></li>
+                                <li><a href="#service" style="color: #314550">key Service</a></li>
                                 <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
                         </div>
@@ -42,7 +42,7 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
                     <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
-                        <h2 class="widgettitle" style="color: #314550">Service</h2>
+                        <h2 class="widgettitle" style="color: #314550">Key service</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
                                 <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
@@ -57,10 +57,10 @@
                     <div class="footer-widget text-var--2 menu--contact">
                         <h2 class="widgettitle" style="color: #314550">contact</h2>
                         <div class="footer-address">
-                            <div class="bk-hover">
-                                <p style="color: #314550">{{ setting('address') }}</p>
-                                <p><a href="mailto:{{ setting('email') }}" style="color: #314550">{{ setting('email') }}</a></p>
-                                <p><a href="https://wa.me/{{ setting('phone') }}" style="color: #314550">{{ setting('phone') }}</a></p>
+                            <div class="" style="line-height: 15px">
+                                <p style="color: #314550; font-size: 20px;">{{ setting('address') }}</p>
+                                <p><a style="color: #314550; font-size: 20px; " href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
+                                <p><a style="color: #314550; font-size: 20px; " href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a></p>
                             </div>
                             <div class="social-share">
                                 <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>

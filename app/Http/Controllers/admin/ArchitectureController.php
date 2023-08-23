@@ -39,7 +39,7 @@ class ArchitectureController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Architecture Inserted Successfully',
+            'message' => 'Service Inserted Successfully',
             'alert-type' => 'success',
         );
         return redirect::route('architecture.index')->with($notification);
@@ -84,7 +84,7 @@ class ArchitectureController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Architecture updated Successfully',
+                'message' => 'Service updated Successfully',
                 'alert-type' => 'info',
             );
             return redirect::route('architecture.index')->with($notification);
@@ -101,7 +101,7 @@ class ArchitectureController extends Controller
         unlink($image);
         $architecture->delete();
 
-        $message = __( 'Architecture deleted successfully' );
+        $message = __( 'Service deleted successfully' );
         return $this->response(true, 200, $message );
     }
 

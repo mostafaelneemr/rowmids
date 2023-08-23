@@ -33,7 +33,7 @@ class ArchitecturePictureController extends Controller
             ArchitecturePicture::create([ 'image' => $save_url, ]);
 
             $notification = array(
-                'message' => 'slider Inserted Successfully',
+                'message' => 'Image Inserted Successfully',
                 'alert-type' => 'success',
             );
             return redirect::route('architecture.index')->with($notification);

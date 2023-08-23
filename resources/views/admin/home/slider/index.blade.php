@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3> Sliders
-                        @if (\App\Models\admin\Slider::where('slider_type' , 'home')->count() < 3)
+                        @if (\App\Models\admin\Slider::where('slider_type' , 'home')->count() < 1)
                             <a href="{{route('home-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
                         @endif
                     </h3>

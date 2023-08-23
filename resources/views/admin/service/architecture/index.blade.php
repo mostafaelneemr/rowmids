@@ -93,7 +93,7 @@ $pictures = App\Models\admin\ArchitecturePicture::get();
             <div class="card">
                 <div class="card-header">
                     <h3> Services
-                        <a href="{{route('architecture.create')}}" class="btn btn-primary text-white float-start m-4">Add architecture</a>
+                        <a href="{{route('architecture.create')}}" class="btn btn-primary text-white float-start m-4">Add service</a>
                     </h3>
                 </div>
 
@@ -119,7 +119,7 @@ $pictures = App\Models\admin\ArchitecturePicture::get();
                                 <td>{{$architecture->title}}</td>
                                 <td>{{$architecture->desc}}</td>
                                 <td class={{$architecture->is_publish == 'active' ? 'text-success':'text-danger'}}>{{$architecture->is_publish == 'active' ? 'published' : 'draft'}}</td>
-                                <td>
+                                <td width="10%">
                                     <a href="{{route('architecture.edit', $architecture->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                     <a href="javascript:void(0);" onclick="deleteArchitecture( '{{route('architecture.destroy', $architecture->id )}}')" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                    @if($architecture->is_publish == 'active')

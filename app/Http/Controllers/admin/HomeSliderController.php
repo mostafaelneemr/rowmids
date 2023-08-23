@@ -22,7 +22,7 @@ class HomeSliderController extends Controller
 
     public function create()
     {
-        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 3){
+        if(Slider::where('slider_type' , self::SLIDER_TYPE)->count() >= 1){
             return back();
         }
         return $this->view('home.slider.create');

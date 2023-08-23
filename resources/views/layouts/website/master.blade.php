@@ -86,11 +86,11 @@
                         <li><a href="{{ route('home') }}"><span>Home</span></a></li>
 
                         @if(\App\Models\admin\ActivationSetting::where('type', 'about_page')->first()->value == '1')
-                            <li><a href="{{ route('about') }}"><span>About</span></a></li>
+                            <li><a href="{{ route('about') }}"><span>About US</span></a></li>
                         @endif
 
                         @if(\App\Models\admin\ActivationSetting::where('type', 'service_page')->first()->value == '1')
-                            <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
+                            <li class="lavel-1"><a href="{{ route('service') }}"><span>Key Service</span></a></li>
                         @endif
 
                         @if(\App\Models\admin\ActivationSetting::where('type', 'portfolio_page')->first()->value == '1')
@@ -105,7 +105,7 @@
                             <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
                         @endif
 
-                        <li><a href="{{ route('contact') }}"><span>Contact</span></a></li>
+                        <li><a href="{{ route('contact') }}"><span>Contact us</span></a></li>
 
                         {{-- <li class="has-mega-menu"><a href="#"><span>Pages</span></a>
                             <!-- Start Dropdown Menu -->
@@ -154,11 +154,11 @@
                             <li class="lavel-1"><a href="{{ route('home') }}"><span>Home</span></a></li>
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'about_page')->first()->value == '1')
-                            <li class="lavel-1"><a href="{{ route('about') }}"><span>About</span></a></li>
+                            <li class="lavel-1"><a href="{{ route('about') }}"><span>About US</span></a></li>
                             @endif
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'service_page')->first()->value == '1')
-                                <li class="lavel-1"><a href="{{ route('service') }}"><span>Service</span></a></li>
+                                <li class="lavel-1"><a href="{{ route('service') }}"><span>Key Service</span></a></li>
                             @endif
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'portfolio_page')->first()->value == '1')
@@ -173,7 +173,7 @@
                                 <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
                             @endif
 
-                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact</span></a></li>
+                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact us</span></a></li>
 
                             {{-- <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>Client</span></a>
 
@@ -221,9 +221,9 @@
                             <div class="bk-hover mb--40">
                                 <h5 class="heading heading-h5 text-white">Connect</h5>
                                 <div class="bkseparator--20"></div>
-                                <p class="bk_pra font-16">{{ setting('address') }}</p>
-                                <p class="bk_pra font-16"><a href="mailto:{{setting('email')}}" target="_blank">{{setting('email')}}</a></p>
-                                <p class="bk_pra font-16"><a href="https://wa.me/{{ setting('phone') }}" target="_blank">{{setting('phone')}}</a></p>
+                                <p class="bk_pra font-16 text-white">{{ setting('address') }}</p>
+                                <p class="bk_pra font-16"><a class="text-white" href="mailto:{{setting('email')}}" target="_blank">{{setting('email')}}</a></p>
+                                <p class="bk_pra font-16"><a class="text-white" href="https://wa.me/{{ setting('phone') }}" target="_blank">{{setting('phone')}}</a></p>
                             </div>
                             <ul class="social-icon text-start tooltip-layout icon-size-large">
                                 <li class="facebook"><a href="{{ setting('facebook') }}" class="link hint--bounce hint--top hint--white" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
@@ -235,7 +235,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="copyright-right text-end">
-                            <p class="bk_pra font-16">{{ setting('copyright') }}</p>
+                            <p class="bk_pra font-16 text-white">{{ setting('copyright') }}</p>
                         </div>
                     </div>
                 </div>

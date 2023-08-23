@@ -67,18 +67,6 @@ class SettingController extends Controller
                             Image::make($path)->resize(230, 70)->save('upload/logo/' . $name_gen);
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
-                        }elseif($request->file('picture_service')){
-                            $path = $request->file('picture_service');
-                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
-                            Image::make($path)->save('upload/service/' . $name_gen);
-                            $save_url = 'upload/service/' . $name_gen;
-                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
-                        }elseif($request->file('admin_logo')){
-                            $path = $request->file('admin_logo');
-                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
-                            Image::make($path)->save('upload/logo/' . $name_gen);
-                            $save_url = 'upload/logo/' . $name_gen;
-                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }elseif($request->file('image_navbar')){
                             $path = $request->file('image_navbar');
                             $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
@@ -86,6 +74,20 @@ class SettingController extends Controller
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }
+                        elseif($request->file('footer_logo')){
+                            $path = $request->file('footer_logo');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->resize(230, 70)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }elseif($request->file('contact_bg')){
+                            $path = $request->file('contact_bg');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->resize(461, 642)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }
+
 
 
                     }

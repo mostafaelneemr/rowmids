@@ -23,7 +23,7 @@ style="background-image: url('{{ $slider->image }}'); background-repeat: no-repe
         <div class="container">
             <div class="row align-items-end">
                 <div class="col-lg-6 col-12 pr--50 ptb-md--80 ptb-sm--80">
-                    <div class="contact-modern bg_color--18 space_dec--100 pt--120 pb--120 pl--60 pr--60" style="background-image: url('{{ setting('site_logo') }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+                    <div class="contact-modern bg_color--18 space_dec--100 pt--120 pb--120 pl--60 pr--60" style="background-image: url('{{ setting('contact_bg') }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
                         <div class="inner">
                             <h2 class="heading heading-h2 text-white">{{ setting('contact_header') }}</h2>
 
@@ -37,7 +37,7 @@ style="background-image: url('{{ $slider->image }}'); background-repeat: no-repe
                             <div class="classic-address text-start mt--60">
                                 <h4 class="heading heading-h4 text-white">Message us</h4>
                                 <div class="desc mt--15 mb--30">
-                                    <p class="bk_pra line-height-2-22 text-white"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a> <br> <a href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a> </p>
+                                    <p class="bk_pra line-height-2-22 text-white"><a class="text-white" href="mailto:{{ setting('email') }}">{{ setting('email') }}</a> <br> <a class="text-white" href="https://wa.me/{{ setting('phone') }}">{{ setting('phone') }}</a> </p>
                                 </div>
                                 <div class="social-share social--transparent text-white">
                                     <a href="{{ setting('facebook') }}"><i class="fab fa-facebook"></i></a>
