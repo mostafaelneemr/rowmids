@@ -109,12 +109,12 @@ class ServiceDigitController extends Controller
     public function destroy($id)
     {
         $service = ServiceDigital::findOrFail($id);
-        $image = Str::after($service->image, 'upload/service/');
-        $image = public_path('upload/service/' . $image);
+        $image = Str::after($service->image, 'upload/about/');
+        $image = public_path('upload/about/' . $image);
         unlink($image);
         $service->delete();
 
-        $message = __( 'Team deleted successfully' );
+        $message = __( 'About US deleted successfully' );
         return $this->response(true, 200, $message );
     }
 
@@ -122,7 +122,7 @@ class ServiceDigitController extends Controller
     {
         ServiceDigital::findOrFail($id)->update(['is_publish' => 'in-active']);
         $notification = array(
-            'message' => 'Digital Service is Inactive',
+            'message' => 'About section is Inactive',
             'alert-type' => 'success',
         );
 
@@ -133,7 +133,7 @@ class ServiceDigitController extends Controller
     {
         ServiceDigital::findOrFail($id)->update(['is_publish' => 'active']);
         $notification = array(
-            'message' => 'Digital Service is Active',
+            'message' => 'About Section is Active',
             'alert-type' => 'success',
         );
 
