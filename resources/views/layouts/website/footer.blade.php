@@ -32,7 +32,7 @@
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
                                 <li><a href="#aboutus" style="color: #314550">About US</a></li>
-                                <li><a href="#testimonial" style="color: #314550">Testimonial</a></li>
+                                {{-- <li><a href="#testimonial" style="color: #314550">Testimonial</a></li> --}}
                                 <li><a href="#service" style="color: #314550">key Service</a></li>
                                 <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
                             </ul>
