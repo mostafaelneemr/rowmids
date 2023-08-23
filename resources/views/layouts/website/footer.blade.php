@@ -33,8 +33,8 @@
                             <ul class="ft-menu-list bk-hover">
                                 <li><a href="#aboutus" style="color: #314550">About US</a></li>
                                 {{-- <li><a href="#testimonial" style="color: #314550">Testimonial</a></li> --}}
-                                <li><a href="#service" style="color: #314550">key Service</a></li>
-                                <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li>
+                                <li><a href="#service" style="color: #314550">key Services</a></li>
+                                <li><a href="{{ route('contact') }}" style="color: #314550">Contact US</a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,10 +42,10 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt_mobile--40">
                     <div class="footer-widget text-var--2 menu--about" style="line-height: 0;">
-                        <h2 class="widgettitle" style="color: #314550">Key service</h2>
+                        <h2 class="widgettitle" style="color: #314550">Key services</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('service') }}" style="color: #314550">service</a></li>
+                                <li><a href="{{ route('service') }}" style="color: #314550">Services</a></li>
                                 {{-- <li><a href="#" style="color: #314550">Career</a></li> --}}
                                 {{-- <li><a href="{{ route('contact') }}" style="color: #314550">contact</a></li> --}}
                             </ul>
@@ -55,7 +55,7 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
                     <div class="footer-widget text-var--2 menu--contact">
-                        <h2 class="widgettitle" style="color: #314550">contact</h2>
+                        <h2 class="widgettitle" style="color: #314550">Contact US</h2>
                         <div class="footer-address">
                             <div class="" style="line-height: 15px">
                                 <p style="color: #314550; font-size: 20px;">{{ setting('address') }}</p>

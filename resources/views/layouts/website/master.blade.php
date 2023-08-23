@@ -158,7 +158,7 @@
                             @endif
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'service_page')->first()->value == '1')
-                                <li class="lavel-1"><a href="{{ route('service') }}"><span>Key Service</span></a></li>
+                                <li class="lavel-1"><a href="{{ route('service') }}"><span>Key Services</span></a></li>
                             @endif
 
                             @if(\App\Models\admin\ActivationSetting::where('type', 'portfolio_page')->first()->value == '1')
@@ -173,7 +173,7 @@
                                 <li class="lavel-1"><a href="{{ route('career') }}"><span>Career</span></a></li>
                             @endif
 
-                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact us</span></a></li>
+                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>Contact US</span></a></li>
 
                             {{-- <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>Client</span></a>
 
