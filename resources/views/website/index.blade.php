@@ -23,7 +23,7 @@
 
                     <!-- LAYER NR. 2 -->
                     <h2 class="tp-caption text-white" id="slide-12-layer-6" data-x="['left','center','center','center']"
-                        data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-200','100','100','100']"
+                        data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-120','100','100','100']"
                         data-fontsize="['50','47','39','31']" data-lineheight="['77','66','55','44']"
                         data-width="['500','430','360','300']" data-height="['none','133','none','89']"
                         data-whitespace="normal" data-type="text" data-responsive_offset="off" data-responsive="off"
@@ -40,7 +40,7 @@
                         data-type="text" data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                         data-textAlign="['inherit','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 7; min-width: 500px; max-width: 500px; white-space: normal; font-size: 20px; line-height: 40px; font-weight: 500; color: #999999; letter-spacing: 0px;margin-top: -200px"> {{ $slider->sub_title }} </h4>
+                        style="z-index: 7; min-width: 500px; max-width: 500px; white-space: normal; font-size: 20px; line-height: 40px; font-weight: 500; color: #999999; letter-spacing: 0px;margin-top: -60px"> {{ $slider->sub_title }} </h4>
 
                         <p class="tp-caption text-white" id="slide-12-layer-8" data-x="['left','center','center','center']"
                         data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-114','100','100','100']"
@@ -49,7 +49,7 @@
                         data-frames='[{"delay":400,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                         data-textAlign="['inherit','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 8; margin-top: 250px">{{ $slider->desc }}</p>
+                        style="z-index: 8; margin-top: 430px">{{ $slider->desc }}</p>
                     <!-- LAYER NR. 4 -->
                     <a class="tp-caption rev-btn " href="{{setting('slider_link')}}" id="slide-12-layer-8" data-x="['left','center','center','center']"
                         data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['157','380','360','360']"
@@ -57,7 +57,7 @@
                         data-responsive_offset="off" data-responsive="off" data-frames='[{"delay":1400,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(248,164,64);bg:rgba(248,164,64,0);"}]'
                         data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
-                        style="z-index: 8; min-width: 182px; max-width: 182px; max-width: 62px; max-width: 62px; white-space: nowrap; font-size: 14px; line-height: 60px; font-weight: 600; color: rgba(255,255,255,1); background-color:rgb(248,164,64);border-color:rgb(248,164,64);border-style:solid;border-width:1px 1px 1px 1px;border-radius:40px 40px 40px 40px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">{{ setting('slider_button') }}</a>
+                        style="z-index: 8; min-width: 182px; max-width: 182px; max-width: 62px; max-width: 62px; white-space: nowrap; margin-top: 200px; font-size: 14px; line-height: 60px; font-weight: 600; color: rgba(255,255,255,1); background-color:rgb(248,164,64);border-color:rgb(248,164,64);border-style:solid;border-width:1px 1px 1px 1px;border-radius:40px 40px 40px 40px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">{{ setting('slider_button') }}</a>
                 </li>
                 @endforeach
 
