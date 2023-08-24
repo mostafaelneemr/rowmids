@@ -43,7 +43,7 @@ class ServiceController extends Controller
         return redirect::route('services.index')->with($notification);
     //    }catch (\Exception $e) {
     //        return redirect::back()->withErrors(['errors' => $e->getMessage()]);
-       }
+    //    }
     }
 
     public function show($id)
