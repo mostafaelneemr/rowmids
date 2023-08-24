@@ -397,8 +397,6 @@
     </div> --}}
 
 
-
-
     <section class="bg_color--5">
     <div class="container">
         <div class="row align-content-center ">
@@ -440,7 +438,9 @@
                                         <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
                                         <div class="bkseparator--20"></div>
                                         <p class="bk_pra">{{ $architecture->desc }}</p>
-                                            
+                                        <div class="view-more-btn">
+                                            <a href="{{ route('service') }}"><span>More details</span> <span class="btn-arrow"></span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

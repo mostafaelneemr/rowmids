@@ -27,7 +27,7 @@ class WebsiteController extends Controller
         $testimonials = Testimonial::where('is_publish', 'active')->paginate(4);
         $galleries = Gallery::paginate(3);
         $pictures = ArchitecturePicture::get();
-        $architectures = Architecture::paginate(3);
+        $architectures = Architecture::where('is_publish', 'active')->paginate(3);
         // $brands = Brand::where('is_publish', 'active')->paginate(4);
         return view('website.index', compact('sliders', 'digitals','testimonials', 'galleries', 'pictures', 'architectures'));
     }   

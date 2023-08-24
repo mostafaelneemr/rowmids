@@ -29,7 +29,7 @@ class ArchitectureController extends Controller
        try{
         $image = $request->file('icon');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(71, 71)->save('upload/service/' . $name_gen);
+        Image::make($image)->resize(75, 75)->save('upload/service/' . $name_gen);
         $save_url = 'upload/service/' . $name_gen;
 
         Architecture::create([
@@ -72,7 +72,7 @@ class ArchitectureController extends Controller
                 @unlink($old_image);
                 $image = $request->file('icon');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(71,71)->save('upload/service/'.$name_gen);
+                Image::make($image)->resize(80,80)->save('upload/service/'.$name_gen);
                 $save_url = 'upload/service/'.$name_gen;
                 Architecture::findOrFail($id)->update(['icon' => $save_url]);
             }
