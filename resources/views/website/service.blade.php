@@ -110,7 +110,7 @@
 
 
 <!-- Start Service List -->
-<div class="brook-service-list-area">
+<div class="brook-service-list-area mt-5">
 
     <!-- Start Single Service -->
     @foreach ($services as $service)

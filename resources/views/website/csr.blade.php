@@ -1,25 +1,5 @@
 @extends('layouts.website.master')
 
-@section('style')
-
-    {{-- <style> --}}
-        {{-- .bg-thumb {
-                width: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-position: 50%;
-                background-size: cover;
-                -webkit-transform: scale(.9);
-                -ms-transform: scale(.9);
-                transform: scale(.9);
-                border-radius: 50%;
-                -webkit-transition: all 1.5s;
-                transition: all 1.5s;
-            } --}}
-    {{-- </style> --}}
-
-@endsection
-
 @section('content')
 
 <div class="slider-revoluation">
@@ -52,7 +32,7 @@
                         data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                         data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 6; min-width: 630px; max-width: 630px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">
+                        style="z-index: 6; min-width: 980px; max-width: 630px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 4px;margin-left: -150px">
                         {{$slider->title}}</div>
                 </li>
 
@@ -64,7 +44,7 @@
 </div>
 
 <!-- Start Service List -->
-<div class="brook-service-list-area">
+<div class="brook-service-list-area mt-5">
 
     <!-- Start Single Service -->
     @foreach ($corporates as $corporate)

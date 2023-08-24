@@ -24,7 +24,7 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-       try{
+    //    try{
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(745, 640)->save('upload/service/' . $name_gen);
@@ -41,8 +41,8 @@ class ServiceController extends Controller
             'alert-type' => 'success',
         );
         return redirect::route('services.index')->with($notification);
-       }catch (\Exception $e) {
-           return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+    //    }catch (\Exception $e) {
+    //        return redirect::back()->withErrors(['errors' => $e->getMessage()]);
        }
     }
 
