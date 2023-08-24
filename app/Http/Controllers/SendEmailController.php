@@ -7,7 +7,7 @@ use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
-use App\Models\Admin\Contact;
+use App\Models\admin\Contact;
 
 class SendEmailController extends Controller
 {
