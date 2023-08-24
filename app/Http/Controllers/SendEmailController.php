@@ -36,9 +36,10 @@ class SendEmailController extends Controller
     }
 
 
-    public function adminindex(){
-      $messages=Contact::all();
-      return view('admin.contact.messages.index',compact('messages'));
+    public function adminindex()
+    {
+      $messages = Contact::get();
+      return view('admin.contact.messages.index', compact('messages'));
     }
 
     public function deletemessage($id)
