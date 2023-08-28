@@ -122,6 +122,10 @@
           </li>
 
           <li>
+            <a href="{{ route('users.index') }}"><i class="fa fa-user-circle"></i><span class="right-nav-text">Users</span></a>
+          </li>
+
+          <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#icon">
               <div class="pull-left"><i class="fa fa-navicon"></i><span class="right-nav-text">Icons</span></div>
               <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>

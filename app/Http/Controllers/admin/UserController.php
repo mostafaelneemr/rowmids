@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function store(Request $q)
     {
-        // try {
+        try {
             $this->validate($q, [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
@@ -36,12 +36,15 @@ class UserController extends Controller
                 'email' => $q->email,
                 'password' => Hash::make($q->password),
             ]);
-                
-            session()->flash('Add', 'Added user succesfully');
-            return redirect()->route('users.index');
-        // } catch (\Exception $e) {
-        //     return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
-        // }
+
+            $notify = array(
+                'message' => 'Added user succesfully',
+                'alert-message' => 'success'
+            );
+            return redirect()->route('users.index')->with($notify);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
     public function show($id)
@@ -74,18 +77,21 @@ class UserController extends Controller
 
         $user = User::find($id);
 
-        $user->update(['name' => $q->name,
+        $user->update([
+            'name' => $q->name,
             'email' => $q->email,
             'password' => Hash::make($q->password),
         ]);
 
-        session()->flash('edit', 'Updated user succesfully');
-        return redirect('users');
+        $notify = array(
+            'message' => 'Updated user succesfully',
+            'alert-message' => 'info'
+        );
+        return redirect('users')->with($notify);
     }
 
     public function destroy($id)
     {
-
         User::destroy($id);
         session()->flash('Deleted', 'Deleted user succesfully');
         return redirect()->back();
