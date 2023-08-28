@@ -93,7 +93,14 @@ class SettingController extends Controller
                             Image::make($path)->resize(1920, 1080)->save('upload/logo/' . $name_gen);
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
+                        }elseif($request->file('logo_url')){
+                            $path = $request->file('logo_url');
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            Image::make($path)->save('upload/logo/' . $name_gen);
+                            $save_url = 'upload/logo/' . $name_gen;
+                            if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }
+
 
 
 

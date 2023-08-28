@@ -6,8 +6,8 @@
 <title>@yield('title')</title>
 @yield('css')
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{asset('website/icon-01.png')}}" type="image/x-icon">
-<link rel="apple-touch-icon" href="{{asset('website/icon.png')}}">
+<link rel="shortcut icon" href="{{setting('logo_url')}}" type="image/x-icon">
+<link rel="apple-touch-icon" href="{{setting('logo_url')}}">
 
 
 <!-- CSS
