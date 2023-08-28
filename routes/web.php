@@ -20,6 +20,7 @@ use App\Http\Controllers\admin\ServiceSliderController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
@@ -119,6 +120,9 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified']
         Route::get('/corporate/inactive/{id}', [CorporateController::class, 'InactiveCsr'])->name('inactive.csr');
         Route::get('/corporate/active{id}', [CorporateController::class, 'ActiveCsr'])->name('active.csr');
     });
+
+    Route::resource('users', UserController::class);
+
 
     Route::get('/slider/inactive/{id}', [HomeSliderController::class, 'InactiveSlider'])->name('inactive.slider');
     Route::get('/slider/active{id}', [HomeSliderController::class, 'ActiveSlider'])->name('active.slider');

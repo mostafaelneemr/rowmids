@@ -1,5 +1,26 @@
 @extends('layouts.website.master')
 
+@section('css')
+<style>
+    @media (max-width: 768px) {
+      #slide-12-layer-8 {
+        margin-top: 250px;
+        text-align: center;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      #slide-12-layer-8 {
+        margin-top: 250px;
+        text-align: center;
+        width: 80%; /* Adjust the width as needed */
+      }
+    }
+  </style>
+
+@endsection
+
+
 @section('content')
 
 

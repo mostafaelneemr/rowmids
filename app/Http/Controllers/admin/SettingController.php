@@ -21,7 +21,6 @@ class SettingController extends Controller
     }
 
     public function index(){
-        // dd('ok');
         $this->viewData['pageTitle'] = __('Settings');
         $this->viewData['breadcrumb'][] = [
             'text'=> __('setting')
@@ -100,9 +99,6 @@ class SettingController extends Controller
                             $save_url = 'upload/logo/' . $name_gen;
                             if($path){ Setting::where(['name'=>$value->name])->where('is_visible','yes')->update(['value'=>$save_url]); }
                         }
-
-
-
 
                     }
                     break;
