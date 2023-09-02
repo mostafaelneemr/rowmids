@@ -2,18 +2,22 @@
 
 @section('css')
 <style>
+    .ahmed{
+        margin-top: 430px;
+        text-align: center;
+    }
+
     @media (max-width: 768px) {
-      #slide-12-layer-8 {
+      .ahmed {
         margin-top: 250px;
         text-align: center;
       }
     }
   
-    @media (max-width: 480px) {
-      #slide-12-layer-8 {
+    @media (max-width: 400px) {
+      .ahmed {
         margin-top: 250px;
         text-align: center;
-        width: 80%; /* Adjust the width as needed */
       }
     }
   </style>
@@ -123,14 +127,14 @@
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                         style="z-index: 7; min-width: 500px; max-width: 500px; white-space: normal; font-size: 20px; line-height: 40px; font-weight: 500; color: #999999; letter-spacing: 0px;margin-top: -60px"> {{ $slider->sub_title }} </h4>
 
-                        <p class="tp-caption text-white" id="slide-12-layer-8" data-x="['left','center','center','center']"
+                        <p class="tp-caption text-white ahmed" id="slide-12-layer-8" data-x="['left','center','center','center']"
                         data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-114','100','100','100']"
                         data-width="['500','430','360','300']" data-height="['none','133','none','89']"
                         data-whitespace="normal" data-type="text" data-responsive_offset="off" data-responsive="off"
                         data-frames='[{"delay":400,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                         data-textAlign="['inherit','center','center','center']" data-paddingtop="[0,0,0,0]"
                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 8; margin-top: 430px">{{ $slider->desc }}</p>
+                        style="z-index: 8;">{{ $slider->desc }}</p>
                     <!-- LAYER NR. 4 -->
                     <a class="tp-caption rev-btn " href="{{setting('slider_link')}}" id="slide-12-layer-8" data-x="['left','center','center','center']"
                         data-hoffset="['80','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['157','380','360','360']"

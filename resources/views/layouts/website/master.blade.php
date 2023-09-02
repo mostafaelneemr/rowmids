@@ -73,10 +73,10 @@
         <!-- Start Popup Menu -->
         <div class="popup-mobile-manu popup-mobile-visiable">
             <div class="inner">
-                <div class="mobileheader">
+                <div class="mobileheader" style="background-color : #000;">
                     <div class="logo">
                         <a href="{{ route('home') }}">
-                            <img src="{{asset('website/img/logo/brook-black.png')}}" alt="Multipurpose">
+                            <img src="{{setting('site_logo')}}" alt="Multipurpose">
                         </a>
                     </div>
                     <a class="mobile-close" href="#"></a>
