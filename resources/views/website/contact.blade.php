@@ -1,23 +1,26 @@
 @extends('layouts.website.master')
 
+@section('title')
+    econce - contact
+@endsection
+
 @section('content')
 
-
-@foreach ($sliders as $slider)
-<div class="brook-breadcaump-area pt--300 pt_md--250 pt_sm--200 pb--300 pb_md--250 pb_sm--200 bg_image--55 breadcaump-title-bar breadcaump-title-white" 
-style="background-image: url('{{ $slider->image }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcaump-inner text-center">
-                    <h2 class="heading heading-h2 font-60 text-white">{{ $slider->title }}</h2>
-                    {{-- <p class="heading heading-h2 font-60 text-white">{{ $slider->sub_title }}</p> --}}
+    @foreach ($sliders as $slider)
+    <div class="brook-breadcaump-area pt--300 pt_md--250 pt_sm--200 pb--300 pb_md--250 pb_sm--200 bg_image--55 breadcaump-title-bar breadcaump-title-white" 
+    style="background-image: url('{{ $slider->image }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcaump-inner text-center">
+                        <h2 class="heading heading-h2 font-60 text-white">{{ $slider->title }}</h2>
+                        {{-- <p class="heading heading-h2 font-60 text-white">{{ $slider->sub_title }}</p> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endforeach
+    @endforeach
 
     <div class="contact-modern pb--120 pb_md--80 pb_sm--80" style="margin-top: 120px">
         <div class="container">

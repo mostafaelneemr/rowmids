@@ -62,6 +62,13 @@
                                             </div>
                                         @endif
                                     </div>
+                                @elseif($sValue->input_type == 'pdf')
+                                    <div class="form-group row">
+                                        {!! Form::label($sValue->name,$sValue->{'shown_name_'.\App::getLocale()},['class'=>'col-md-3 col-form-label']) !!}
+                                        <div  @if($sValue->value) class="col-md-5" @else class="col-md-9" @endif>
+                                            {!! Form::file($sValue->name,['class'=>'form-control','rows'=>3]) !!}
+                                        </div>
+                                    </div>
                                 @elseif($sValue->input_type == 'select')
                                     <div class="form-group row">
                                         {!! Form::label($sValue->name,$sValue->{'shown_name_'.\App::getLocale()},['class'=>'col-md-3 col-form-label']) !!}

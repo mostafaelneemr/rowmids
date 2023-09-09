@@ -1,5 +1,9 @@
 @extends('layouts.website.master')
 
+@section('title')
+    econce - portfolio
+@endsection
+
 @section('style')
 
     <style>

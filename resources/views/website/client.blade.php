@@ -1,5 +1,9 @@
 @extends('layouts.website.master')
 
+@section('title')
+    econce - client
+@endsection
+
 @section('content')
 
 <div class="slider-revoluation">

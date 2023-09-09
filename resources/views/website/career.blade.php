@@ -1,5 +1,9 @@
 @extends('layouts.website.master')
 
+@section('title')
+    econce - career
+@endsection
+
 @section('content')
 
 <div class="slider-revoluation">
@@ -88,7 +92,7 @@
                     </div>
                         <!-- End Single List -->
                         <div class="career-btn mt--60">
-                            <a class="brook-btn bk-btn-dark btn-sd-size btn-rounded space-between" href="mailto:{{ setting('email') }}">Apply now</a>
+                            <a class="brook-btn bk-btn-gradient-pink btn-sd-size btn-rounded space-between" href="mailto:{{ setting('email') }}">Apply now</a>
                         </div>
                     </div>
                 </div>

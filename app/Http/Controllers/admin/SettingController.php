@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Setting;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -103,6 +104,22 @@ class SettingController extends Controller
                     }
                     break;
 
+                    case 'pdf':
+                        $validator = Validator::make($request->all(), [
+                            $value->name => 'nullable|mimes:pdf',
+                        ]);
+                
+                        if (!$validator->fails() && $request->file($value->name)) {
+                            $path = $request->file($value->name);
+                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            $path->move('upload/pdf/', $name_gen);
+                            $save_url = 'upload/pdf/' . $name_gen;
+                            if ($path) {
+                                Setting::where(['name' => $value->name])->where('is_visible', 'yes')->update(['value' => $save_url]);
+                            }
+                        }
+                    break;
+
                 default:
                     if(isset($data[$value->name])){
                         $valueToUpdate = $data[$value->name];
@@ -120,5 +137,12 @@ class SettingController extends Controller
         return back()
             ->with('status','success')
             ->with('msg',__('Settings edited successfully'));
+    }
+
+
+    public function download(Request $request, $file)
+    {
+        return $file;
+        // return response()->download(public_path('upload/pdf'. $file));
     }
 }

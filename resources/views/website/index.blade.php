@@ -1,5 +1,9 @@
 @extends('layouts.website.master')
 
+@section('title')
+    econce
+@endsection
+
 @section('css')
 <style>
     .ahmed{
@@ -26,7 +30,6 @@
 
 
 @section('content')
-
 
 {{-- <div class="slider-revoluation">
     <div id="rev_slider_6_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="home-start-ups"
@@ -86,7 +89,6 @@
     </div>
     <!-- END REVOLUTION SLIDER -->
 </div> --}}
-
 
 <div class="slider-revoluation">
     <div id="rev_slider_6_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="home-start-ups"
@@ -423,60 +425,61 @@
 
 
     <section class="bg_color--5">
-    <div class="container">
-        <div class="row align-content-center ">
-            <div class="col-lg-6 col-12">
-                <div class="bk-title--default text-start">
-                    <h1 class="theme-color fw-500 py-2" style="font-weight: bold; color: #314550; font-size: 61px;">{{ setting('title_service') }}</h1>
+        <div class="container">
+            <div class="row align-content-center ">
+                <div class="col-lg-6 col-12">
+                    <div class="bk-title--default text-start">
+                        <h1 class="theme-color fw-500 py-2" style="font-weight: bold; color: #314550; font-size: 61px;">{{ setting('title_service') }}</h1>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
-                <!-- Start Service Area -->
-                @foreach ($pictures as $picture)
-                <div class="brook-service-area architecture-service-container" id="service" style="background-image : url('{{ $picture->image }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-                    
-                    <!-- Start Bg Thumbnail -->
-                    <div class="architecture-bg-thumbnail">
-                        <div class="inner">
-                            <!-- Start Single Image -->
-                            <div class="architecture-hover-image active">
-                                <div class="bg-thumb"></div>
-                            </div>
-                            <!-- End Single Image -->    
-                        </div>
+
+        <!-- Start Service Area -->
+        @foreach ($pictures as $picture)
+        <div class="brook-service-area architecture-service-container" id="service" style="background-image : url('{{ $picture->image }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            
+            <!-- Start Bg Thumbnail -->
+            <div class="architecture-bg-thumbnail">
+                <div class="inner">
+                    <!-- Start Single Image -->
+                    <div class="architecture-hover-image active">
+                        <div class="bg-thumb"></div>
                     </div>
-                    <!-- End Bg Thumbnail -->
+                    <!-- End Single Image -->    
+                </div>
+            </div>
+            <!-- End Bg Thumbnail -->
                     
                     
-                    <div class="row">
-                        <!-- Start Single Service -->
-                        @foreach($architectures as $architecture)
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="architecture-service" style="align-items: flex-start" data-image3="{{ $picture->image }}">
-                                <div class="architecture-inner my-auto"> 
-                                    <div class="icon mb--25">
-                                        <img src="{{ $architecture->icon }}" alt="Multipurpose">
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
-                                        <div class="bkseparator--20"></div>
-                                        <p class="bk_pra">{{ $architecture->desc }}</p>
-                                        <div class="view-more-btn">
-                                            <a href="{{ route('service') }}"><span>More details</span> <span class="btn-arrow"></span></a>
-                                        </div>
-                                    </div>
+            <div class="row">
+                <!-- Start Single Service -->
+                @foreach($architectures as $architecture)
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="architecture-service" style="align-items: flex-start" data-image3="{{ $picture->image }}">
+                        <div class="architecture-inner my-auto"> 
+                            <div class="icon mb--25">
+                                <img src="{{ $architecture->icon }}" alt="Multipurpose">
+                            </div>
+                            <div class="content">
+                                <h4 class="heading heading-h4 text-white">{{ $architecture->title }}</h4>
+                                <div class="bkseparator--20"></div>
+                                <p class="bk_pra">{{ $architecture->desc }}</p>
+                                <div class="view-more-btn">
+                                    <a href="{{ route('service') }}"><span>More details</span> <span class="btn-arrow"></span></a>
                                 </div>
                             </div>
-                            <!-- End Single Service -->
-                            
                         </div>
-                        @endforeach
                     </div>
+                    <!-- End Single Service -->
+                    
                 </div>
                 @endforeach
-                <!-- End Service Area -->
+            </div>
+        </div>
+        @endforeach
+        <!-- End Service Area -->
 
     
 {{-- <section class="height-auto pb_sm--0" data-skin="black">
@@ -510,6 +513,12 @@
         </div>
     </div>
 </section> --}}
+
+
+{{-- @php
+    $pdf = App\Models\admin\Setting::where('input_type', 'pdf')->first();
+    dd($pdf);
+@endphp --}}
 
     @include('website.call')
 

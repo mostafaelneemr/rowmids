@@ -6,44 +6,45 @@
 
     <style>
         .open-hamberger-wrapper {
-  /* background-image: url(img/bg/bg-image-28.jpg); */
-  background-color: #222;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 99999;
-  visibility: hidden;
-  overflow: hidden;
-  overflow-y: auto;
-  opacity: 0;
-  -webkit-transform: scale(0.3);
-  -ms-transform: scale(0.3);
-  transform: scale(0.3);
-  padding: 100px 120px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  padding-top: 60px; }
+        /* background-image: url(img/bg/bg-image-28.jpg); */
+        background-color: #222;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 99999;
+        visibility: hidden;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 0;
+        -webkit-transform: scale(0.3);
+        -ms-transform: scale(0.3);
+        transform: scale(0.3);
+        padding: 100px 120px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+        flex-flow: column;
+        padding-top: 60px; }
     </style>
+    
 </head>
 
 <body class="template-color-37 template-font-1">

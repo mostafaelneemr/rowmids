@@ -155,3 +155,6 @@ Route::get('/career', [WebsiteController::class, 'career'])->name('career');
 Route::get('/corporate', [WebsiteController::class, 'corporate'])->name('corporate');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');
+
+
+Route::get('/download/{file}', [SettingController::class, 'download'])->name('download.pdf');
