@@ -142,7 +142,7 @@ class SettingController extends Controller
 
     public function download(Request $request, $file)
     {
-        return $file;
-        // return response()->download(public_path('upload/pdf'. $file));
+        dd($request);
+        return response()->download(public_path('upload/pdf'. $file));
     }
 }

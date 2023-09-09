@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="call-btn text-center text-sm-end mt_mobile--20 wow move-up">
-                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="{{ route('download.pdf', $pdf->value) }}">Find out more</a>
+                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="#">Find out more</a>
                             </div>
                         </div>
                     </div>
