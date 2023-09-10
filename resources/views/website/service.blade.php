@@ -141,7 +141,8 @@
 </div>
 
 @php
-    $pdf = App\Models\admin\Setting::where('input_type', 'pdf')->first();
+    $filename = App\Models\admin\Setting::where('input_type', 'pdf')->first();
+    // dd($filename)
 @endphp
 
             <!-- Start Call To Action -->
@@ -155,7 +156,8 @@
                         </div>
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="call-btn text-center text-sm-end mt_mobile--20 wow move-up">
-                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="#">Find out more</a>
+
+                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Find out more</a>
                             </div>
                         </div>
                     </div>

@@ -5,9 +5,10 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Setting;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 
 class SettingController extends Controller
@@ -140,9 +141,20 @@ class SettingController extends Controller
     }
 
 
-    public function download(Request $request, $file)
+    public function downloadPdf($filename)
     {
-        dd($request);
-        return response()->download(public_path('upload/pdf'. $file));
+        $filePath = 'upload/pdf/' . $filename;
+    
+        if (Storage::exists($filePath)) {
+            $file = Storage::get($filePath);
+            $headers = [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . $filename . '"',
+            ];
+    
+            return new Response($file, 200, $headers);
+        } else {
+            abort(404);
+        }
     }
 }
