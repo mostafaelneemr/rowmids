@@ -142,7 +142,6 @@
 
 @php
     $filename = App\Models\admin\Setting::where('input_type', 'pdf')->first();
-    // dd($filename)
 @endphp
 
             <!-- Start Call To Action -->

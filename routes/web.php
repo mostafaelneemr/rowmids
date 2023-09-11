@@ -157,4 +157,4 @@ Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');
 
 
-Route::get('/download-pdf/{filename}', [SettingController::class, 'downloadPdf'])->name('download.pdf');
+Route::get('/{filename}', [SettingController::class, 'downloadPdf'])->name('download.pdf');
