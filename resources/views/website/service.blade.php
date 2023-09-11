@@ -111,7 +111,9 @@
         </div>
     </div>
 </div> --}}
-
+@php
+    $filename = App\Models\admin\Setting::where('input_type', 'pdf')->first();
+@endphp
 
 <!-- Start Service List -->
 <div class="brook-service-list-area mt-5">
@@ -129,40 +131,35 @@
             <p class="bk_pra">{!! $service->desc !!} </p>
 
             <div class="career-btn mt--60">
-                <a class="brook-btn bk-btn-theme with-no-shadow btn-sd-size btn-bullet space-between" href="#">Download PDF</a>
+                <a class="brook-btn bk-btn-theme with-no-shadow btn-sd-size btn-bullet space-between" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Show Compony Profile</a>
             </div>
         </div>
     </div>
     @endforeach
     <!-- End Single Service -->
 
-
-
 </div>
 
-@php
-    $filename = App\Models\admin\Setting::where('input_type', 'pdf')->first();
-@endphp
 
-            <!-- Start Call To Action -->
-            <div class="brook-call-to-action bg_color--1 ptb--70">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="call-content text-center text-sm-start">
-                                <h3 class="heading heading-h3 wow move-up"> Download Compony Profile </h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="call-btn text-center text-sm-end mt_mobile--20 wow move-up">
+    <!-- Start Call To Action -->
+    <div class="brook-call-to-action bg_color--1 ptb--70">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6 col-12">
+                    <div class="call-content text-center text-sm-start">
+                        <h3 class="heading heading-h3 wow move-up">Show Compony Profile </h3>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-12">
+                    <div class="call-btn text-center text-sm-end mt_mobile--20 wow move-up">
 
-                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Find out more</a>
-                            </div>
-                        </div>
+                        <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Find out more</a>
                     </div>
                 </div>
             </div>
-            <!-- End Call To Action -->
+        </div>
+    </div>
+    <!-- End Call To Action -->
 
     @include('website.call')
 
