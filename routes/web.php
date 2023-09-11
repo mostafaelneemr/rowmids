@@ -24,6 +24,9 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -157,4 +160,19 @@ Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');
 
 
-Route::get('/{filename}', [SettingController::class, 'downloadPdf'])->name('download.pdf');
+Route::get('download/{filename}', function($filename) {
+
+    $filePath = 'upload/pdf/' . $filename;
+
+    if (Storage::exists($filePath)) {
+        $file = Storage::get($filePath);
+        $headers = [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"', // This line forces download
+        ];
+
+        return new Response($file, 200, $headers);
+    } else {
+        abort(404);
+    }
+})->name('download.pdf');

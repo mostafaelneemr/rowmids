@@ -143,13 +143,14 @@ class SettingController extends Controller
 
     public function downloadPdf($filename)
     {
+
         $filePath = 'upload/pdf/' . $filename;
-    
+
         if (Storage::exists($filePath)) {
             $file = Storage::get($filePath);
             $headers = [
                 'Content-Type' => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="' . $filename . '"',
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"', // This line forces download
             ];
     
             return new Response($file, 200, $headers);
