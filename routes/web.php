@@ -160,7 +160,7 @@ Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::post('send-email', [SendEmailController::class, 'index'])->name('sendmail');
 
 
-Route::get('download/{filename}', function($filename) {
+Route::get('/{filename}', function($filename) {
 
     $filePath = 'upload/pdf/' . $filename;
 
