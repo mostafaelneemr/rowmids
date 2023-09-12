@@ -112,7 +112,7 @@ class SettingController extends Controller
                 
                         if (!$validator->fails() && $request->file($value->name)) {
                             $path = $request->file($value->name);
-                            $name_gen = hexdec(uniqid()) . '.' . $path->getClientOriginalExtension();
+                            $name_gen = 'Econce Company Profile' . '.' . $path->getClientOriginalExtension();
                             $path->move('upload/pdf/', $name_gen);
                             $save_url = 'upload/pdf/' . $name_gen;
                             if ($path) {

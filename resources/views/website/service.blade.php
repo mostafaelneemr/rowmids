@@ -142,23 +142,23 @@
 
 
     <!-- Start Call To Action -->
-    <div class="brook-call-to-action bg_color--1 ptb--70">
+    <div class="brook-call-to-action ptb--50" style="background-color: #314550">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-6 col-12">
-                    <div class="call-content text-center text-sm-start">
-                        <h3 class="heading heading-h3 wow move-up">Show Compony Profile </h3>
+                <div class="col-lg-8 col-sm-6 col-12">
+                    <div class="call-content text-center text-sm-left">
+                        <h3 class="heading heading-h3 font-32 text-white" style="font-size: 50px;">Show Compony Profile</h3>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-6 col-12">
-                    <div class="call-btn text-center text-sm-end mt_mobile--20 wow move-up">
-
-                        <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Find out more</a>
+                <div class="col-lg-4 col-sm-6 col-12">
+                    <div class="call-btn text-center text-sm-right mt_mobile--20">
+                        <a class="brook-btn bk-btn-white text-dark btn-sd-size btn-rounded" href="{{ route('download.pdf', ['filename' => $filename->value]) }}">Find Out Here</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- End Call To Action -->
 
     @include('website.call')
